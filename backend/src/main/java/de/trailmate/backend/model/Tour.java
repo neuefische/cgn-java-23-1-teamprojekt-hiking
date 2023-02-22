@@ -1,4 +1,4 @@
-package model;
+package de.trailmate.backend.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

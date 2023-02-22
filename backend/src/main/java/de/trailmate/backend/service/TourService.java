@@ -1,8 +1,8 @@
-package service;
+package de.trailmate.backend.service;
 
-import model.Tour;
+import de.trailmate.backend.model.Tour;
+import de.trailmate.backend.repository.TourRepository;
 import org.springframework.stereotype.Service;
-import repository.TourRepository;
 
 import java.util.List;
 

@@ -1,11 +1,12 @@
-package controller;
+package de.trailmate.backend.controller;
 
-import model.Tour;
+import de.trailmate.backend.service.TourService;
+import de.trailmate.backend.model.Tour;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.TourService;
+
 
 import java.util.List;
 

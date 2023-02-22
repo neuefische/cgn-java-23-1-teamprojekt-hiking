@@ -1,9 +1,9 @@
-package repository;
+package de.trailmate.backend.repository;
 
+import de.trailmate.backend.model.Tour;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.Tour;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
