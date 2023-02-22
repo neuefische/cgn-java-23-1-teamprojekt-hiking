@@ -1,4 +1,4 @@
-package repository;
+package de.trailmate.backend.repository;
 
 import de.trailmate.backend.model.Tour;
 import de.trailmate.backend.repository.TourRepository;
