@@ -2,16 +2,13 @@ import {Tour} from "../model/Tour";
 import React from "react";
 
 
-type TourCardProps = {
-    tour: Tour
-}
 
-export default function TourCard(props: TourCardProps) {
+export default function TourCard(props: Tour) {
 
     return (
-        <div>
-            <p>{props.tour.id}</p>
-            <p>{props.tour.title}</p>
+        <div className="TourCard">
+            <p>{props.id}</p>
+            <p>{props.title}</p>
         </div>
 
 
