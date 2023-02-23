@@ -1,5 +1,6 @@
 import {Tour} from "../model/Tour";
 import React from "react";
+import "../Styling/TourCard.css"
 
 
 
