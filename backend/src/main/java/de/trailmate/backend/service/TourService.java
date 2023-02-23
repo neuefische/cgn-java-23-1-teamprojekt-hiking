@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class TourService {
 
-    private TourRepository tourRepository;
+    private final TourRepository tourRepository;
 
     public TourService(TourRepository tourRepository){
 

@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class TourController {
 
-    TourService tourService;
+    private final TourService tourService;
 
     public TourController(TourService tourService){
         this.tourService = tourService;

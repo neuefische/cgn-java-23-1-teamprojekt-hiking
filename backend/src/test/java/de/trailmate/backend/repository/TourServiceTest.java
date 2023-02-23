@@ -17,33 +17,16 @@ class TourServiceTest {
     TourRepository tourRepository = mock(TourRepository.class);
     TourService tourService = new TourService(tourRepository);
 
-    @Test
-    void getAllTours() {
-        // given
-        Tour testItem = new Tour("1","fancy TestTour");
-        Mockito.when(tourRepository.getAllTours())
-                .thenReturn(Collections.singletonList(testItem));
-
-        // when
-        List<Tour> actual = tourRepository.getAllTours();
-
-        // then
-        Assertions.assertThat(actual)
-                .containsExactly(testItem);
-
-    }
 
     @Test
     void getTourList() {
-        // given
+
         Tour testItem = new Tour("1","fancy TestTour");
         Mockito.when(tourRepository.getAllTours())
                 .thenReturn(Collections.singletonList(testItem));
 
-        // when
         List<Tour> actual = tourService.getTourList();
 
-        // then
         Assertions.assertThat(actual)
                 .containsExactly(testItem);
 

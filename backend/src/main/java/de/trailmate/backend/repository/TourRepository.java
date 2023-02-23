@@ -15,10 +15,8 @@ import java.util.Map;
 @Repository
 public class TourRepository {
 
-    Map<String, Tour> tourList = new HashMap<String, Tour>();
+    private Map<String, Tour> tourList = new HashMap<>();
 
-    public TourRepository(){
-    }
 
     public List<Tour> getAllTours(){
         return tourList.values().stream().toList();

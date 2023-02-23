@@ -16,22 +16,15 @@ public class TourControllerTest {
     @Autowired
     MockMvc mockMvc;
 
-
-
     @Test
-
-    void getAllTours() throws Exception {
+    void whenGetAllTours_ThenReturnEmptyList() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
                 .get("/api/tours"))
                 .andExpect(MockMvcResultMatchers.status()
                         .isOk())
                 .andExpect(MockMvcResultMatchers
-                        .content().json(""" 
-[]
-                        
-"""
-
-                        ));
+                        .content().json("""
+[]"""));
 
     }
 }

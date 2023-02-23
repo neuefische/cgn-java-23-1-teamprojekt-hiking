@@ -6,7 +6,8 @@ import lombok.NoArgsConstructor;
 
 
 @AllArgsConstructor
-
+@NoArgsConstructor
+@Data
 public class Tour {
     String id;
     String title;
