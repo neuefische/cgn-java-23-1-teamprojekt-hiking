@@ -5,6 +5,7 @@ import TourCardGallery from "./component/TourCardGallery";
 import Header from "./component/Header";
 import {Route, Routes} from "react-router-dom";
 import Main from "./Main";
+import TourCardDetails from "./component/TourCardDetails";
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
         <Header/>
         <Routes>
             <Route path="/" element={<Main/>}></Route>
-            <Route path="/gallery" element={<TourCardGallery tourList={tours}/>}/>
+            <Route path="/tours" element={<TourCardGallery tourList={tours}/>}/>
+            <Route path="/tours/:id" element={<TourCardDetails/>}/>
         </Routes>
 
     </div>

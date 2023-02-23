@@ -10,7 +10,7 @@ export default function Header(){
             <img src={logo} alt="trailmatelogo" width="80px" height="80px"/>
         <h1>Trailmate</h1>
             <h4>..better than komoot</h4>
-            <Link to={"/gallery"}>Gallery</Link>
+            <Link to={"/tours"}>Tours</Link>
 
 
         </div>

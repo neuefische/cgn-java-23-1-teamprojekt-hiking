@@ -1,15 +1,12 @@
 package de.trailmate.backend.repository;
 
 import de.trailmate.backend.model.Tour;
-import de.trailmate.backend.repository.TourRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import de.trailmate.backend.service.TourService;
-
 import java.util.Collections;
 import java.util.List;
-
 import static org.mockito.Mockito.mock;
 
 class TourServiceTest {

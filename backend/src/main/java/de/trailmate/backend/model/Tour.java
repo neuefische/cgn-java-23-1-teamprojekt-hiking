@@ -11,4 +11,13 @@ import lombok.NoArgsConstructor;
 public class Tour {
     String id;
     String title;
+    String description;
+    double startLongitude;
+    double startLatitude;
+    double endLongitude;
+    double endLatitude;
+    String category;
+
+
+
 }
