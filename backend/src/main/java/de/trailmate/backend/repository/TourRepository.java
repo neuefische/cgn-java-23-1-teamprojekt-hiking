@@ -28,4 +28,11 @@ public class TourRepository {
     }
 
 
+    public Tour getSingleTour(String id) {
+       return tourList.get(id);
+    }
+
+    public Tour addTour(Tour tour){
+       return tourList.put(tour.getId(), tour);
+    }
 }

@@ -21,4 +21,11 @@ public class TourService {
         return tourRepository.getAllTours();
     }
 
+    public Tour getSingleTour(String id) {
+
+        return tourRepository.getSingleTour(id);
+
+    }
+
+
 }

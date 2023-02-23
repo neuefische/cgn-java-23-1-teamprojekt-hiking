@@ -4,6 +4,7 @@ import de.trailmate.backend.service.TourService;
 import de.trailmate.backend.model.Tour;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,11 @@ public class TourController {
     @GetMapping("/tours")
     public List<Tour> getAllTours(){
         return tourService.getTourList();
+    }
+
+    @GetMapping("/tours/{id}")
+    public Tour getTourDetails(@PathVariable String id){
+        return tourService.getSingleTour(id);
     }
 
 
