@@ -18,8 +18,8 @@ public class TourRepository {
     Map<String, Tour> tourList = new HashMap<String, Tour>();
 
     public TourRepository(){
-        tourList.put("1", new Tour("1", "Fancy cool colo"));
-        tourList.put("2", new Tour("2", "Vino Amigo"));
+        //tourList.put("1", new Tour("1", "Fancy cool colo"));
+        //tourList.put("2", new Tour("2", "Vino Amigo"));
     }
 
     public List<Tour> getAllTours(){
