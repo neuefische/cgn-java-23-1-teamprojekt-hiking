@@ -11,11 +11,16 @@ import java.util.List;
 import java.util.Map;
 
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 
 @Repository
 public class TourRepository {
 
     private Map<String, Tour> tourList = new HashMap<>();
+
+
 
 
     public List<Tour> getAllTours(){
