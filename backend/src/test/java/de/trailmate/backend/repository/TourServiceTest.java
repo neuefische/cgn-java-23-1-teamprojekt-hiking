@@ -18,7 +18,7 @@ class TourServiceTest {
     @Test
     void isGetAllToursResponseCorrectly() {
 
-        Tour testItem = new Tour("1","fancy TestTour");
+        Tour testItem = new Tour("1","fancy TestTour", "fancy tour for experts", 50.95554563841488, 6.940264471365975, 50.94339660284997, 6.950264291165975 , "expert");
         Mockito.when(tourRepository.getAllTours())
                 .thenReturn(Collections.singletonList(testItem));
 
