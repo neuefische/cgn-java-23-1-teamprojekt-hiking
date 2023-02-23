@@ -19,7 +19,7 @@ class TourServiceTest {
 
 
     @Test
-    void getTourList() {
+    void isGetAllToursResponseCorrectly() {
 
         Tour testItem = new Tour("1","fancy TestTour");
         Mockito.when(tourRepository.getAllTours())

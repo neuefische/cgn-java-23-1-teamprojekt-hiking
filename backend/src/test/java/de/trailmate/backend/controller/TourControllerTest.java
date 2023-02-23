@@ -19,12 +19,15 @@ public class TourControllerTest {
     @Test
     void whenGetAllTours_ThenReturnEmptyList() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
-                .get("/api/tours"))
+                        .get("/api/tours"))
                 .andExpect(MockMvcResultMatchers.status()
                         .isOk())
                 .andExpect(MockMvcResultMatchers
                         .content().json("""
-[]"""));
+                        
+                                []
+                        
+                        """));
 
     }
 }
