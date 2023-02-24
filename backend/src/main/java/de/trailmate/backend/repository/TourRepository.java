@@ -33,7 +33,7 @@ public class TourRepository {
 
     }
 
-    public Tour addTour(Tour tour) throws IllegalArgumentException {
+    public Tour addTour(Tour tour)  {
         if(tourList.containsKey(tour.getId())) {
             throw new IllegalArgumentException("The Element already exists");
         }
