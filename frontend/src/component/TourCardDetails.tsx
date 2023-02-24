@@ -34,8 +34,8 @@ export default function TourCardDetails (){
             <p>{details.title}</p>
             <p>{details.category}</p>
             <p>{details.description}</p>
-            <p>{details.startLongitude} {details.startLatitude}</p>
-            <p>{details.endLongitude}  {details.endLatitude}</p>
+            <p>Start:{details.startLongitude} {details.startLatitude}</p>
+            <p>End: {details.endLongitude}  {details.endLatitude}</p>
             
         </div>
     )

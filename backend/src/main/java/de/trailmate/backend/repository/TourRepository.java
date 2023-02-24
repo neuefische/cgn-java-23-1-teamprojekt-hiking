@@ -15,6 +15,7 @@ public class TourRepository {
 
     private Map<String, Tour> tourList = new HashMap<>();
 
+
     public List<Tour> getAllTours(){
         return tourList.values().stream().toList();
     }
