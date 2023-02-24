@@ -7,6 +7,7 @@ import de.trailmate.backend.repository.TourRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -82,12 +83,28 @@ public class TourControllerTest {
 
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/api/tours/add")
-                .contentType(MediaType.APPLICATION_JSON).
-                content(jsonObj))
+                        .contentType(MediaType.APPLICATION_JSON).
+                        content(jsonObj))
                 .andExpect(MockMvcResultMatchers.status()
                         .isOk())
                 .andExpect(MockMvcResultMatchers
                         .content().json(jsonObj));
+
+    }
+
+    @Test
+    @DirtiesContext
+    void whenTourAddedThatAlreadyExistIsExceptionThrown() throws Exception {
+
+        tourRepository.addTour(testTour);
+        String jsonObj = mapper.writeValueAsString(testTour);
+            mockMvc.perform(MockMvcRequestBuilders
+                            .post("/api/tours/add")
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .content(jsonObj))
+                    .andExpect(result -> assertTrue (result.getResolvedException() instanceof IllegalArgumentException))
+                    .andExpect(result -> assertEquals("The Element already exists", result.getResolvedException().getMessage()));
+
 
 
 
