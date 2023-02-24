@@ -7,6 +7,10 @@ import org.mockito.Mockito;
 import de.trailmate.backend.service.TourService;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 class TourServiceTest {
@@ -51,6 +55,34 @@ class TourServiceTest {
         Tour actual = tourService.addTour(testItem);
 
         Assertions.assertThat(actual).isEqualTo(testItem);
+
+    }
+
+    @Test
+    void isEmptyResultForGetSingleTourHandledCorrectly() {
+        
+      Mockito.when(tourRepository.getSingleTour("7573265"))
+              .thenThrow(new NoSuchElementException("Tour does not exist"));
+
+        try {
+            tourService.getSingleTour("7573265");
+        } catch(Exception e) {
+            Assertions.assertThat("Tour does not exist").isEqualTo(e.getMessage());
+        }
+
+    }
+
+    @Test
+    void isErrorHandlingCorrect_WhenAddedTourIsAlreadyExisting() {
+
+        Mockito.when(tourRepository.addTour(testItem))
+                .thenThrow(new IllegalArgumentException("The Element already exists"));
+
+        try {
+            tourService.addTour(testItem);
+        } catch(Exception e) {
+            Assertions.assertThat("The Element already exists").isEqualTo(e.getMessage());
+        }
 
     }
 

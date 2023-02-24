@@ -21,18 +21,19 @@ public class TourRepository {
     }
 
 
-    public Tour getSingleTour(String id) {
+    public Tour getSingleTour(String id) throws NoSuchElementException {
 
         Optional<Tour> singleTour = Optional.ofNullable(tourList.get(id));
 
         if(singleTour.isPresent()){
             return singleTour.get();
-        } else {
-           throw new NoSuchElementException();
         }
+
+           throw new NoSuchElementException("Tour does not exist");
+
     }
 
-    public Tour addTour(Tour tour) {
+    public Tour addTour(Tour tour) throws IllegalArgumentException {
         if(tourList.containsKey(tour.getId())) {
             throw new IllegalArgumentException("The Element already exists");
         }
