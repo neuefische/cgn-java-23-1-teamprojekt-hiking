@@ -27,5 +27,9 @@ public class TourService {
 
     }
 
+    public Tour addTour(Tour tour){
+        return tourRepository.addTour(tour);
+    }
+
 
 }

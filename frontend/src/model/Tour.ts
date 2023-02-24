@@ -1,4 +1,3 @@
-import * as domain from "domain";
 
 export type Tour = {
     id: string,
