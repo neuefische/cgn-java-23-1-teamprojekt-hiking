@@ -14,11 +14,12 @@ class TourServiceTest {
     TourRepository tourRepository = mock(TourRepository.class);
     TourService tourService = new TourService(tourRepository);
 
+    Tour testItem = new Tour("1","fancy TestTour", "fancy tour for experts", 50.95554563841488, 6.940264471365975, 50.94339660284997, 6.950264291165975 , "expert");
+
 
     @Test
     void isGetAllToursResponseCorrectly() {
 
-        Tour testItem = new Tour("1","fancy TestTour", "fancy tour for experts", 50.95554563841488, 6.940264471365975, 50.94339660284997, 6.950264291165975 , "expert");
         Mockito.when(tourRepository.getAllTours())
                 .thenReturn(Collections.singletonList(testItem));
 
@@ -31,11 +32,23 @@ class TourServiceTest {
     @Test
     void isGetSingleTourResponseCorrectly() {
 
-        Tour testItem = new Tour("1","fancy TestTour", "fancy tour for experts", 50.95554563841488, 6.940264471365975, 50.94339660284997, 6.950264291165975 , "expert");
+
         Mockito.when(tourRepository.getSingleTour("1"))
                 .thenReturn((testItem));
 
         Tour actual = tourService.getSingleTour("1");
+
+        Assertions.assertThat(actual).isEqualTo(testItem);
+
+    }
+
+    @Test
+    void isAddTourAddingCorrectly() {
+
+        Mockito.when(tourRepository.addTour(testItem))
+                .thenReturn((testItem));
+
+        Tour actual = tourService.addTour(testItem);
 
         Assertions.assertThat(actual).isEqualTo(testItem);
 
