@@ -6,7 +6,6 @@ type TourCardGalleryProps = {
     tourList: Tour[]
 }
 
-
 export default function TourCardGallery(props: TourCardGalleryProps) {
 
     const displayCards = props.tourList.map((tour) => {
