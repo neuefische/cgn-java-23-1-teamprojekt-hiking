@@ -3,8 +3,6 @@ package de.trailmate.backend.controller;
 import de.trailmate.backend.service.TourService;
 import de.trailmate.backend.model.Tour;
 import org.springframework.web.bind.annotation.*;
-
-
 import java.util.List;
 
 @RestController

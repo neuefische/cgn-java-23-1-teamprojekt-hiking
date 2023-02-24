@@ -94,8 +94,6 @@ public class TourControllerTest {
     @DirtiesContext
     void whenDuplicateTourAdded_ThenStatusConflict() throws Exception {
 
-        
-        //tourRepository.addTour(testTour);
         String jsonObj = mapper.writeValueAsString(testTour);
 
         mockMvc.perform(MockMvcRequestBuilders
@@ -109,16 +107,6 @@ public class TourControllerTest {
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(jsonObj))
                     .andExpect(status().isConflict());
-
-
-
-
-
-
-
-
-
-
 
     }
 }

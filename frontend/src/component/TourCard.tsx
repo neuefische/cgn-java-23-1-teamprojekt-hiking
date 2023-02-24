@@ -3,8 +3,6 @@ import React from "react";
 import "../Styling/TourCard.css"
 import {Link} from "react-router-dom";
 
-
-
 export default function TourCard(props: Tour) {
 
     return (
