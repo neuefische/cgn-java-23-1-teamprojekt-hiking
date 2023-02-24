@@ -1,29 +1,17 @@
 package de.trailmate.backend.controller;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.trailmate.backend.model.Tour;
 import de.trailmate.backend.repository.TourRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintWriter;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
@@ -104,9 +92,10 @@ public class TourControllerTest {
 
     @Test
     @DirtiesContext
-    void whenTourAddedThatAlreadyExistIsExceptionThrown() throws Exception {
+    void whenDuplicateTourAdded_ThenStatusConflict() throws Exception {
 
-        tourRepository.addTour(testTour);
+        
+        //tourRepository.addTour(testTour);
         String jsonObj = mapper.writeValueAsString(testTour);
 
         mockMvc.perform(MockMvcRequestBuilders
@@ -119,8 +108,14 @@ public class TourControllerTest {
                             .post("/api/tours/add")
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(jsonObj))
-                    .andExpect(result -> assertTrue (result.getResolvedException() instanceof IllegalArgumentException))
-                    .andExpect(result -> assertEquals("The Element already exists", result.getResolvedException().getMessage()));
+                    .andExpect(status().isConflict());
+
+
+
+
+
+
+
 
 
 
