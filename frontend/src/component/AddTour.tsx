@@ -35,7 +35,7 @@ export default function AddTour() {
                     <label>Category</label>
                     <input type="text" value={state.category} onChange={handleChange} name="category" />
                     <label>Description</label>
-                    <input type="text" value={state.description} onChange={handleChange} name="Description" />
+                    <input type="text" value={state.description} onChange={handleChange} name="description" />
                     <button>share your Moment</button>
                 </form>
         </div>
