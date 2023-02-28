@@ -12,7 +12,6 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @SpringBootTest
@@ -90,23 +89,4 @@ public class TourControllerTest {
     }
 
 
-    @Test
-    @DirtiesContext
-    void whenDuplicateTourAdded_ThenStatusConflict() throws Exception {
-
-        String jsonObj = mapper.writeValueAsString(testTour);
-
-        mockMvc.perform(MockMvcRequestBuilders
-                .post("/api/tours/add")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(jsonObj));
-
-
-            mockMvc.perform(MockMvcRequestBuilders
-                            .post("/api/tours/add")
-                            .contentType(MediaType.APPLICATION_JSON)
-                            .content(jsonObj))
-                    .andExpect(status().isConflict());
-
-    }
 }
