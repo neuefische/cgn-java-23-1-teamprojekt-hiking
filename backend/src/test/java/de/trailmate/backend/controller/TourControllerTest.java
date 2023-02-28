@@ -54,7 +54,7 @@ public class TourControllerTest {
 
 
 
-        tourRepository.addTour(testTour);
+        tourRepository.save(testTour);
 
         String jsonObj = mapper.writeValueAsString(testTour);
 

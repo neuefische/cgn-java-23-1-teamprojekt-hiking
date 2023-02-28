@@ -1,6 +1,6 @@
-# fly.toml file generated for trailmate on 2023-02-27T17:59:18+01:00
+# fly.toml file generated for trailmateio on 2023-02-28T11:22:41+01:00
 
-app = "trailmate"
+app = "trailmateio"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
