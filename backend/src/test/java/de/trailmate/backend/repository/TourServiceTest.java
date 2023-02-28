@@ -7,6 +7,8 @@ import org.mockito.Mockito;
 import de.trailmate.backend.service.TourService;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+
 import static org.mockito.Mockito.mock;
 
 class TourServiceTest {
@@ -20,7 +22,7 @@ class TourServiceTest {
     @Test
     void isGetAllToursResponseCorrectly() {
 
-        Mockito.when(tourRepository.getAllTours())
+        Mockito.when(tourRepository.findAll())
                 .thenReturn(Collections.singletonList(testItem));
 
         List<Tour> actual = tourService.getTourList();
@@ -33,8 +35,8 @@ class TourServiceTest {
     void isGetSingleTourResponseCorrectly() {
 
 
-        Mockito.when(tourRepository.getSingleTour("1"))
-                .thenReturn((testItem));
+        Mockito.when(tourRepository.findById("1"))
+                .thenReturn(Optional.ofNullable((testItem)));
 
         Tour actual = tourService.getSingleTour("1");
 
@@ -45,7 +47,7 @@ class TourServiceTest {
     @Test
     void isAddTourAddingCorrectly() {
 
-        Mockito.when(tourRepository.addTour(testItem))
+        Mockito.when(tourRepository.save(testItem))
                 .thenReturn((testItem));
 
         Tour actual = tourService.addTour(testItem);
