@@ -1,8 +1,12 @@
 package de.trailmate.backend.controller;
 
+import de.trailmate.backend.model.TourRequestModel;
 import de.trailmate.backend.service.TourService;
 import de.trailmate.backend.model.Tour;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
 
 @RestController
@@ -26,9 +30,16 @@ public class TourController {
     }
 
     @PostMapping("/tours/add")
-    public Tour addTour(@RequestBody Tour tour){
-        return tourService.addTour(tour);
+    public Tour addTour(@RequestBody TourRequestModel tourRequestModel){
+        try {
+            Tour tour = new Tour(tourRequestModel);
+            return tourService.addTour(tour);
+        } catch(Exception e){
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
+
     }
 
 }
+
 
