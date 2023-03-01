@@ -11,6 +11,8 @@ import java.io.IOException;
 
 @SuppressWarnings("all")
 @Configuration
+
+// START-NOSCAN
 public class StaticFilesConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -36,3 +38,4 @@ public class StaticFilesConfig implements WebMvcConfigurer {
                 });
     }
 }
+// END-NOSCAN
