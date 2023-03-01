@@ -30,5 +30,5 @@ public class TourController {
         return tourService.addTour(tour);
     }
 
-
 }
+

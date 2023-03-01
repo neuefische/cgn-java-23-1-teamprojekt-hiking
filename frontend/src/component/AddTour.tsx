@@ -25,7 +25,8 @@ export default function AddTour() {
             [evt.target.name]: value
         })
     console.log(state)
-    };
+        setAddTour({title: state.title, description: state.description, category: state.category, id: "ABCD123", endLatitude: 12.123, endLongitude: 12.123, startLatitude: 12.123, startLongitude: 12.123})
+    }
 
     return(
         <div>
@@ -37,7 +38,7 @@ export default function AddTour() {
                     <input type="text" value={state.category} onChange={handleChange} name="category" />
                     <label>Description</label>
                     <input type="text" value={state.description} onChange={handleChange} name="description" />
-                    <button>share your Moment</button>
+                    <button onClick={handleChange}>share your Moment</button>
                 </form>
         </div>
     )
