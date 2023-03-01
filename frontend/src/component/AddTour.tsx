@@ -15,6 +15,7 @@ export default function AddTour() {
     const handleSubmit =  (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log(state)
+        postSingleTour(addTour as Tour)
     }
 
     function handleChange(evt: any) {

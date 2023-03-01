@@ -34,6 +34,7 @@ public class TourService {
     }
 
     public Tour addTour(Tour tour){
+        tour.setId(IdService.generateId());
        try {
            return tourRepository.save(tour);
        }
