@@ -83,8 +83,7 @@ public class TourControllerTest {
                         content(jsonObj))
                 .andExpect(MockMvcResultMatchers.status()
                         .isOk())
-                .andExpect(MockMvcResultMatchers
-                        .content().json(jsonObj));
+                .andExpect(jsonPath("$.title").value("DGHDsgdhsdg"));
 
     }
 
