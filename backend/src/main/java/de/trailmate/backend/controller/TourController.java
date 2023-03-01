@@ -1,6 +1,6 @@
 package de.trailmate.backend.controller;
 
-import de.trailmate.backend.model.TourRequestModel;
+import de.trailmate.backend.model.TourDTO;
 import de.trailmate.backend.service.TourService;
 import de.trailmate.backend.model.Tour;
 import org.springframework.http.HttpStatus;
@@ -30,7 +30,7 @@ public class TourController {
     }
 
     @PostMapping("/tours/add")
-    public Tour addTour(@RequestBody TourRequestModel tourRequestModel){
+    public Tour addTour(@RequestBody TourDTO tourRequestModel){
         try {
             Tour tour = new Tour(tourRequestModel);
             return tourService.addTour(tour);
