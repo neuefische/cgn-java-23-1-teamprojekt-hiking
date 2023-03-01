@@ -55,6 +55,18 @@ class TourServiceTest {
         Assertions.assertThat(actual).isEqualTo(testItem);
 
     }
-    
 
+    @Test
+    void getSingleTourWithoutExistingIdGivesErrorCorrectly() {
+        String result = "";
+
+        try {
+            Tour actual = tourService.getSingleTour("");
+        } catch (Exception e) {
+            result = e.getMessage();
+        }
+
+        Assertions.assertThat("409 CONFLICT").isEqualTo(result);
+    }
+    
 }

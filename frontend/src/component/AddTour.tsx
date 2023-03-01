@@ -1,9 +1,15 @@
 import React, {FormEvent, useState} from "react";
 import {Tour} from "../model/Tour";
 import "../Styling/AddTour.css"
+import AddSingleTour from "../hook/AddSingleTour";
+
 
 
 export default function AddTour() {
+
+    const{postSingleTour}=AddSingleTour()
+
+    const [addTour, setAddTour] = useState<Tour>();
 
     const [state, setState] = React.useState({
         title: "",
