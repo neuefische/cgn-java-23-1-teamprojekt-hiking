@@ -66,7 +66,7 @@ class TourServiceTest {
             result = e.getMessage();
         }
 
-        Assertions.assertThat("409 CONFLICT").isEqualTo(result);
+        Assertions.assertThat(result).isEqualTo("409 CONFLICT");
     }
 
 }
