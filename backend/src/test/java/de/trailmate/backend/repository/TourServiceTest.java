@@ -68,5 +68,5 @@ class TourServiceTest {
 
         Assertions.assertThat("409 CONFLICT").isEqualTo(result);
     }
-    
+
 }
