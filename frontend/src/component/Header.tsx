@@ -1,18 +1,36 @@
 import React from "react";
 import logo from "../trailmatelogo.png"
+import headerImg from "../headBackground.png"
 import "../Styling/Header.css"
 import {Link} from "react-router-dom";
 
 
 export default function Header(){
-    return(
-        <div className="Header">
-            <img src={logo} alt="trailmatelogo" width="80px" height="80px"/>
-        <h1>Trailmate</h1>
-            <h4>..better than komoot</h4>
-            <Link to={"/tours"}>Tours</Link>
 
-
+    return (
+        <div className="header">
+            <img src={logo} alt="Logo" className="logo" style={{ height: '250px', width: '250px' }} />
+            <div className="button-container">
+                <Link to={"/tours"}>HOME</Link>
+                <b className={"button-divtext"}>|</b>
+                <Link to={"/tours"}>TOURS</Link>
+                <b className={"button-divtext"}>|</b>
+                <Link to={"/tours"}>ADD TOUR</Link>
+            </div>
+            <img src={headerImg} alt="cant find image" className="background-image" />
+            <div id="foglayer_01" className="fog">
+                <div className="image01"></div>
+                <div className="image02"></div>
+            </div>
+            <div id="foglayer_02" className="fog">
+                <div className="image01"></div>
+                <div className="image02"></div>
+            </div>
+            <div id="foglayer_03" className="fog">
+                <div className="image01"></div>
+                <div className="image02"></div>
+            </div>
+                <h1 className={"title-text"}>TRAILMATE</h1>
         </div>
-    )
-}
+    );
+};
