@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class TourControllerTest {
+class TourControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -28,7 +28,7 @@ public class TourControllerTest {
 
     ObjectMapper mapper = new ObjectMapper();
 
-    Tour testTour = new Tour("1","DGHDsgdhsdg", "fancy tour for experts", 50.95554563841488, 6.94026447165975, 50.94339660284997, 6.950264291165975 , "expert");
+    Tour testTour = new Tour("1", "DGHDsgdhsdg", "fancy tour for experts", 50.95554563841488, 6.94026447165975, 50.94339660284997, 6.950264291165975, "expert");
 
 
 

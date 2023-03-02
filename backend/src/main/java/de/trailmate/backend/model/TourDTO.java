@@ -1,12 +1,10 @@
 package de.trailmate.backend.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
 @AllArgsConstructor
-@NoArgsConstructor
-@Data
+@Getter
 public class TourDTO {
     String title;
     String description;
