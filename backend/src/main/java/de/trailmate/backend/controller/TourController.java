@@ -3,7 +3,9 @@ package de.trailmate.backend.controller;
 import de.trailmate.backend.model.Tour;
 import de.trailmate.backend.model.TourDTO;
 import de.trailmate.backend.service.TourService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 

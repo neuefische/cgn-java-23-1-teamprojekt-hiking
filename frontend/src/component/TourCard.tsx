@@ -7,12 +7,11 @@ export default function TourCard(props: Tour) {
 
     return (
         <div className="TourCard">
-            <Link to={"/tours/" + props.id }>Details</Link>
+            <Link to={"/tours/" + props.id}>Details</Link>
+            <Link to={"/tours/edit/" + props.id}>Edit</Link>
             <p>{props.title}</p>
             <p>{props.description}</p>
             <p>{props.category}</p>
         </div>
-
-
     )
 }
