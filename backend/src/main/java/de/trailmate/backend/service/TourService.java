@@ -14,11 +14,11 @@ import java.util.Optional;
 public class TourService {
 
     private final TourRepository tourRepository;
+    private final IdService idService;
 
-    public TourService(TourRepository tourRepository){
-
+    public TourService(TourRepository tourRepository, IdService idService) {
         this.tourRepository = tourRepository;
-
+        this.idService = idService;
     }
 
     public List<Tour> getTourList() {
@@ -35,14 +35,14 @@ public class TourService {
         }
     }
 
-    public Tour addTour(Tour tour){
-        tour.setId(IdService.generateId());
-       try {
-           return tourRepository.save(tour);
-       }
-       catch (IllegalArgumentException e){
-           throw new ResponseStatusException(HttpStatus.CONFLICT);
-       }
+    public Tour addTour(TourDTO tourRequestModel) {
+        Tour tour = new Tour(tourRequestModel);
+        tour.setId(idService.generateId());
+        try {
+            return tourRepository.save(tour);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
     }
 
 
