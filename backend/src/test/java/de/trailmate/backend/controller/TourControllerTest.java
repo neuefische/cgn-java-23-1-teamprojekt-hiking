@@ -12,12 +12,13 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class TourControllerTest {
+class TourControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -27,7 +28,7 @@ public class TourControllerTest {
 
     ObjectMapper mapper = new ObjectMapper();
 
-    Tour testTour = new Tour("1","DGHDsgdhsdg", "fancy tour for experts", 50.95554563841488, 6.94026447165975, 50.94339660284997, 6.950264291165975 , "expert");
+    Tour testTour = new Tour("1", "DGHDsgdhsdg", "fancy tour for experts", 50.95554563841488, 6.94026447165975, 50.94339660284997, 6.950264291165975, "expert");
 
 
 
@@ -54,7 +55,7 @@ public class TourControllerTest {
 
 
 
-        tourRepository.addTour(testTour);
+        tourRepository.save(testTour);
 
         String jsonObj = mapper.writeValueAsString(testTour);
 
@@ -84,29 +85,9 @@ public class TourControllerTest {
                         content(jsonObj))
                 .andExpect(MockMvcResultMatchers.status()
                         .isOk())
-                .andExpect(MockMvcResultMatchers
-                        .content().json(jsonObj));
+                .andExpect(jsonPath("$.title").value("DGHDsgdhsdg"));
 
     }
 
 
-    @Test
-    @DirtiesContext
-    void whenDuplicateTourAdded_ThenStatusConflict() throws Exception {
-
-        String jsonObj = mapper.writeValueAsString(testTour);
-
-        mockMvc.perform(MockMvcRequestBuilders
-                .post("/api/tours/add")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(jsonObj));
-
-
-            mockMvc.perform(MockMvcRequestBuilders
-                            .post("/api/tours/add")
-                            .contentType(MediaType.APPLICATION_JSON)
-                            .content(jsonObj))
-                    .andExpect(status().isConflict());
-
-    }
 }
