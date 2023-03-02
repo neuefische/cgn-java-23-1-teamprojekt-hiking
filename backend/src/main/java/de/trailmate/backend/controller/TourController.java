@@ -1,8 +1,10 @@
 package de.trailmate.backend.controller;
 
-import de.trailmate.backend.service.TourService;
 import de.trailmate.backend.model.Tour;
+import de.trailmate.backend.model.TourDTO;
+import de.trailmate.backend.service.TourService;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -26,9 +28,10 @@ public class TourController {
     }
 
     @PostMapping("/tours/add")
-    public Tour addTour(@RequestBody Tour tour){
-        return tourService.addTour(tour);
+    public Tour addTour(@RequestBody TourDTO tourRequestModel){
+        return tourService.addTour(tourRequestModel);
     }
 
-
 }
+
+

@@ -8,9 +8,9 @@ export default function TourCard(props: Tour) {
     return (
         <div className="TourCard">
             <Link to={"/tours/" + props.id }>Details</Link>
-            <p>{props.id}</p>
             <p>{props.title}</p>
-
+            <p>{props.description}</p>
+            <p>{props.category}</p>
         </div>
 
 

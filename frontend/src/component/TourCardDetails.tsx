@@ -17,8 +17,7 @@ export default function TourCardDetails (){
         axios
             .get(requestURL)
             .then((response) => {
-                setDetails(response.data);
-                console.log(details);
+                setDetails(response.data)
             })
             .catch((error) => console.error(error));
     }, [requestURL]);
@@ -26,7 +25,7 @@ export default function TourCardDetails (){
 
 
     if (!details) {
-        return <h1>NO DATA</h1>;
+        return <h1>Error loading data</h1>;
     }
 
     return(

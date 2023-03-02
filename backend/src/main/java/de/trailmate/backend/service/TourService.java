@@ -1,40 +1,48 @@
 package de.trailmate.backend.service;
 
 import de.trailmate.backend.model.Tour;
+import de.trailmate.backend.model.TourDTO;
 import de.trailmate.backend.repository.TourRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TourService {
 
     private final TourRepository tourRepository;
+    private final IdService idService;
 
-    public TourService(TourRepository tourRepository){
-
+    public TourService(TourRepository tourRepository, IdService idService) {
         this.tourRepository = tourRepository;
-
+        this.idService = idService;
     }
 
     public List<Tour> getTourList() {
-        return tourRepository.getAllTours();
+        return tourRepository.findAll();
     }
 
     public Tour getSingleTour(String id) {
 
-        return tourRepository.getSingleTour(id);
-
+        Optional<Tour> singleTour = tourRepository.findById(id);
+        if (singleTour.isPresent()) {
+            return singleTour.get();
+        } else {
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
     }
 
-    public Tour addTour(Tour tour){
-       try {
-           return tourRepository.addTour(tour);
-       }
-       catch (IllegalArgumentException e){
-           throw new ResponseStatusException(HttpStatus.CONFLICT);
-       }
+    public Tour addTour(TourDTO tourRequestModel) {
+        Tour tour = new Tour(tourRequestModel);
+        tour.setId(idService.generateId());
+        try {
+            return tourRepository.save(tour);
+        } catch (IllegalArgumentException e) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
     }
 
 

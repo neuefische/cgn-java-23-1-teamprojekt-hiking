@@ -6,6 +6,9 @@ import Header from "./component/Header";
 import {Route, Routes} from "react-router-dom";
 import Main from "./Main";
 import TourCardDetails from "./component/TourCardDetails";
+import AddTour from "./component/AddTour";
+import Footer from "./component/Footer";
+
 
 function App() {
 
@@ -19,7 +22,9 @@ function App() {
             <Route path="/" element={<Main/>}></Route>
             <Route path="/tours" element={<TourCardGallery tourList={tours}/>}/>
             <Route path="/tours/:id" element={<TourCardDetails/>}/>
+            <Route path="/tours/add" element={<AddTour/>}/>
         </Routes>
+        <Footer/>
 
     </div>
   );
