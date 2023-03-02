@@ -4,8 +4,6 @@
     background-color: #146552;
     height: 500px; /* Höhe des Containers auf die Höhe des Bildes setzen */
     position: relative;
-    background-color: #146552;
-    height: 500px;
     align-items: center;
 }
 
@@ -83,6 +81,8 @@
 }
 
 .title-text {
+    padding-top: 100px;
+    height: 300px;
     position: relative;
     text-transform: uppercase;
     letter-spacing: 6px;
