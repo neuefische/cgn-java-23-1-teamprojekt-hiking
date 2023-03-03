@@ -76,7 +76,7 @@ export default function UpdateTour() {
               title: inputFields.title.toString(),
               description: inputFields.description.toString(),
               category: inputFields.category.toString(),
-              id: "",
+              id: id?id:"",
               endLatitude: 12.123,
               endLongitude: 12.123,
               startLatitude: 12.123,
@@ -94,6 +94,7 @@ export default function UpdateTour() {
               <label>Description</label>
               <input type="text" value={inputFields.description} onChange={handleChange} name="description"/>
               <button onClick={() => handleChange}>Share your Moment</button>
+              <button type="reset" value="Reset" onClick={resetForm}>Reset</button>
           </form>
       )
 }
