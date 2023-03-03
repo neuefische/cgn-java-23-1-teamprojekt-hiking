@@ -2,6 +2,7 @@ import React, {ChangeEvent, FormEvent, useState} from "react";
 import {Tour} from "../model/Tour";
 import "../Styling/AddTour.css"
 import AddSingleTour from "../hook/AddSingleTour";
+import {text} from "stream/consumers";
 
 
 export default function AddTour() {
@@ -40,11 +41,11 @@ export default function AddTour() {
         <form onSubmit={handleSubmit}>
             <h1>share Tour - share Moments</h1>
             <label>Title</label>
-            <input type="text" value={inputFields.title} onChange={handleChange} name="title"/>
+            <input type="text" value={inputFields.title} onChange={handleChange} name="title" maxLength={40} minLength={3}/>
             <label>Category</label>
-            <input type="text" value={inputFields.category} onChange={handleChange} name="category"/>
+            <input type="text" value={inputFields.category} onChange={handleChange} name="category" maxLength={20} minLength={3}/>
             <label>Description</label>
-            <input type="text" value={inputFields.description} onChange={handleChange} name="description"/>
+            <input type="text" value={inputFields.description} onChange={handleChange} name="description" maxLength={500} minLength={3}  />
             <button onClick={() => handleChange}>share your Moment</button>
         </form>
     )

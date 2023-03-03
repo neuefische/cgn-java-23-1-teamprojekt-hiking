@@ -32,7 +32,6 @@ class TourControllerTest {
     Tour testTour = new Tour("1", "DGHDsgdhsdg", "fancy tour for experts", 50.95554563841488, 6.94026447165975, 50.94339660284997, 6.950264291165975, "expert");
 
 
-
     @Test
     void whenGetAllTours_ThenReturnEmptyList() throws Exception {
 
@@ -55,7 +54,6 @@ class TourControllerTest {
     void whenGetSingleTour_ThenReturnSingleTour() throws Exception {
 
 
-
         tourRepository.save(testTour);
 
         String jsonObj = mapper.writeValueAsString(testTour);
@@ -68,7 +66,6 @@ class TourControllerTest {
                 .andExpect(MockMvcResultMatchers
                         .content().json(jsonObj));
 
-        
 
     }
 
@@ -126,4 +123,3 @@ class TourControllerTest {
 
 
 
-}
