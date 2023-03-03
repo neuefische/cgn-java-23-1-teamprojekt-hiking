@@ -34,13 +34,9 @@ public class TourController {
         return tourService.addTour(tourRequestModel);
     }
 
-    @PutMapping("tours/{id}")
+    @PostMapping("/tours/{id}")
     public Tour updateTour(@PathVariable String id, @RequestBody TourDTO tourRequestModel) {
-        try {
             return tourService.updateTour(id, tourRequestModel);
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT);
-        }
     }
 
 }

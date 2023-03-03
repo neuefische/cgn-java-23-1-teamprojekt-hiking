@@ -23,6 +23,7 @@ export default function UpdateTour() {
     const {updateSingleTour} = useUpdateTour();
     const allTours = GetTours();
     const [addTour, setAddTour] = useState<Tour | undefined>();
+    let resetAction = 1;
 
 
     //const tourToUpdate:Tour[] = allTours.filter((tour) => { return tour.id === id }).map((result:Tour) => { return result  })
@@ -46,12 +47,27 @@ export default function UpdateTour() {
         }
     }, [id, allTours]);
 
+    const resetForm = () => {
+            const tour = allTours.find((tour) => tour.id === id);
+            if (tour) {
+                setAddTour(tour);
+                setInputFields({
+                    title: tour.title,
+                    description: tour.description,
+                    category: tour.category,
+                });
+            }
+    }
+
+
 
       const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
           event.preventDefault();
           updateSingleTour(addTour as Tour)
           console.log(addTour)
       }
+
+
 
 
       function handleChange(evt: ChangeEvent<HTMLInputElement>) {

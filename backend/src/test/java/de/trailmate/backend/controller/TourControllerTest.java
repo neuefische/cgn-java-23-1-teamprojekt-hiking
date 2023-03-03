@@ -2,6 +2,7 @@ package de.trailmate.backend.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.trailmate.backend.model.Tour;
+import de.trailmate.backend.model.TourDTO;
 import de.trailmate.backend.repository.TourRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +89,41 @@ class TourControllerTest {
                 .andExpect(jsonPath("$.title").value("DGHDsgdhsdg"));
 
     }
+
+    @Test
+    @DirtiesContext
+    void whenUpdateToureCalled_isTourUpdatedCorrectly() throws Exception {
+
+      testTour.setId("bd4d11c5-8760-4f99-9020-958e10941fab");
+
+
+        String jsonObj = "{\n" +
+                "   \"id\": \"bd4d11c5-8760-4f99-9020-958e10941fab\",\n" +
+                "   \"title\": \"DGHDsgdhsdg\",\n" +
+                "   \"description\": \"fancy tour for experts\",\n" +
+                "   \"startLongitude\": 50.95554563841488,\n" +
+                "   \"startLatitude\": 6.94026447165975,\n" +
+                "   \"endLongitude\": 50.94339660284997,\n" +
+                "   \"endLatitude\": 6.950264291165975,\n" +
+                "   \"category\": \"expert\"\n" +
+                "}";
+
+
+
+        mockMvc.perform(MockMvcRequestBuilders
+                        .post("/api/tours/bd4d11c5-8760-4f99-9020-958e10941fab")
+                        .contentType(MediaType.APPLICATION_JSON).
+                        content(jsonObj))
+                .andExpect(MockMvcResultMatchers.status()
+                        .isOk())
+                .andExpect(jsonPath("$.title").value("DGHDsgdhsdg"))
+                .andExpect(jsonPath("$.id").value("bd4d11c5-8760-4f99-9020-958e10941fab"))
+        ;
+    }
+
+
+}
+
 
 
 }

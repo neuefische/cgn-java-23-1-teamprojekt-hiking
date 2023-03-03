@@ -59,9 +59,7 @@ public class TourService {
                 throw new ResponseStatusException(HttpStatus.CONFLICT);
             }
         } else {
-
             throw new ResponseStatusException(HttpStatus.CONFLICT);
-
         }
 
 
