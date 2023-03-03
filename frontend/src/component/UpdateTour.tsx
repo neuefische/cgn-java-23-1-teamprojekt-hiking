@@ -2,6 +2,9 @@ import React, {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import {Tour} from "../model/Tour";
 import {useParams} from "react-router-dom";
 import GetTours from "../hook/GetTours";
+import useUpdateTour from "../hook/UseUpdateTour";
+import {wait} from "@testing-library/user-event/dist/utils";
+
 
 
 
@@ -46,7 +49,8 @@ export default function UpdateTour() {
 
       const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
           event.preventDefault();
-          postSingleTour(addTour as Tour)
+          updateSingleTour(addTour as Tour)
+          console.log(addTour)
       }
 
 

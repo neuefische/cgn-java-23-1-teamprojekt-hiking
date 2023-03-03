@@ -1,6 +1,6 @@
 import {Tour} from "../model/Tour";
-import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {Link, useParams} from "react-router-dom";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 
@@ -35,6 +35,7 @@ export default function TourCardDetails (){
             <p>{details.description}</p>
             <p>Start:{details.startLongitude} {details.startLatitude}</p>
             <p>End: {details.endLongitude}  {details.endLatitude}</p>
+            <Link to={"/tours/edit/" + id}>Edit</Link>
             
         </div>
     )
