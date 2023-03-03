@@ -9,13 +9,12 @@ export default function Header(){
 
     return (
         <div className="header">
-            <img src={logo} alt="Logo" className="logo" style={{ height: '250px', width: '250px' }} />
             <div className="button-container">
-                <Link to={"/tours"}>HOME</Link>
+                <Link to={"/"}>HOME</Link>
                 <b className={"button-divtext"}>|</b>
                 <Link to={"/tours"}>TOURS</Link>
                 <b className={"button-divtext"}>|</b>
-                <Link to={"/tours"}>ADD TOUR</Link>
+                <Link to={"/tours/add"}>ADD TOUR</Link>
             </div>
             <img src={headerImg} alt="cant find image" className="background-image" />
             <div id="foglayer_01" className="fog">

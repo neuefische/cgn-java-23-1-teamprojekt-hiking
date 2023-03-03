@@ -18,7 +18,6 @@ export default function TourCardGallery(props: TourCardGalleryProps) {
     return(
         <div>
             {displayCards}
-            <Link className="AddLink" to={"/tours/add"}> Add a new Adventure </Link>
         </div>
     )
 }

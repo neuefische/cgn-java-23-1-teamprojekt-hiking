@@ -5,6 +5,8 @@
     height: 500px; /* Höhe des Containers auf die Höhe des Bildes setzen */
     position: relative;
     align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .header img {
@@ -109,15 +111,15 @@
 
 
 @keyframes shake {
-    0% { transform: translateY(-1px); }
-    12.5% { transform: translateY(-0.75px); }
-    25% { transform: translateY(-0.5px); }
-    37.5% { transform: translateY(-0.25px); }
+    0% { transform: translateY(-4px); }
+    12.5% { transform: translateY(-3px); }
+    25% { transform: translateY(-2px); }
+    37.5% { transform: translateY(-1px); }
     50% { transform: translateY(-0px); }
-    62.5% { transform: translateY(0.25px);}
-    75% { transform: translateY(0.5px);}
-    82.5% { transform: translateY(0.75px);}
-    100% { transform: translateY(1px);}}
+    62.5% { transform: translateY(1px);}
+    75% { transform: translateY(2px);}
+    82.5% { transform: translateY(3px);}
+    100% { transform: translateY(4px);}}
 
 
 
