@@ -24,13 +24,15 @@
 
 .container {
     padding-top: 0;
-
     display: grid;
+    width: 100%;
+
 }
 
 .content, .overlay {
     grid-area: 1 / 1;
-    text-align: left
+    text-align: left;
+
 }
 
 .subtitle{

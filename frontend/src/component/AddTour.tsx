@@ -2,7 +2,7 @@ import React, {ChangeEvent, FormEvent, useState} from "react";
 import {Tour} from "../model/Tour";
 import "../Styling/AddTour.css"
 import AddSingleTour from "../hook/AddSingleTour";
-import {text} from "stream/consumers";
+
 
 
 export default function AddTour() {

@@ -3,9 +3,6 @@ import {Tour} from "../model/Tour";
 import {useParams} from "react-router-dom";
 import GetTours from "../hook/GetTours";
 import useUpdateTour from "../hook/UseUpdateTour";
-import {wait} from "@testing-library/user-event/dist/utils";
-
-
 
 
 const myAsynFunction = async (id: String | undefined) => {
@@ -25,8 +22,6 @@ export default function UpdateTour() {
     const [addTour, setAddTour] = useState<Tour | undefined>();
     let resetAction = 1;
 
-
-    //const tourToUpdate:Tour[] = allTours.filter((tour) => { return tour.id === id }).map((result:Tour) => { return result  })
 
     const [inputFields, setInputFields] = useState({
         title: "",

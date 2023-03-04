@@ -44,8 +44,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 10px;
+    padding: 20px 40px 0 10px;
     z-index: 2;
+
 }
 
 .navigation-button {
@@ -58,13 +59,6 @@
 }
 
 
-.button-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 20px;
-    padding-right: 40px;
-}
 
 .button-divtext{
     color: white;
@@ -96,11 +90,7 @@
     background-size: 120% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    -ms-background-clip: text;
-    -ms-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
     background-image: linear-gradient(45deg,
     #7794ff,
     #44107A,
