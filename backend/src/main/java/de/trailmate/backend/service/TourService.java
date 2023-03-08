@@ -61,4 +61,15 @@ public class TourService {
     }
 
 
+    public String tourToDelete(String id) {
+
+        if(!tourRepository.existsById(id)){
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        } else {
+            tourRepository.deleteById(id);
+            return id;
+        }
+
+
+    }
 }
