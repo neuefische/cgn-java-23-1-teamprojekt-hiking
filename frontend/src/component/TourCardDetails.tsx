@@ -1,13 +1,16 @@
 import {Tour} from "../model/Tour";
 import {Link, useParams} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import React, {MouseEventHandler, useEffect, useState} from "react";
 import axios from "axios";
 import testtwo from "../testtwo.jpg";
-import DeleteTour from "./DeleteTour";
+import handleDeleteTour from "../hook/DeleteTour";
+import DeleteTour from "../hook/DeleteTour";
+
 
 
 export default function TourCardDetails (){
 
+    const handleDeleteTour = DeleteTour()
     const params = useParams();
     const id: string | undefined = params.id;
 
@@ -29,6 +32,16 @@ export default function TourCardDetails (){
     if (!details) {
         return <h1>Error loading data</h1>;
     }
+
+
+    const handleSubmit: MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.preventDefault();
+        handleDeleteTour(details)
+
+
+    }
+
+
 
     return(
         <div className="TourCard">

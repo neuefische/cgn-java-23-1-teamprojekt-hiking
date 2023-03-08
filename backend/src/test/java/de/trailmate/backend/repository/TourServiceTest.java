@@ -130,12 +130,13 @@ class TourServiceTest {
 
         String id = "1";
         tourRepository.save(testItem);
-        when(tourRepository.save(testItem)).thenReturn(testItem);
-        System.out.println(tourService.getSingleTour(id));
+        when(tourRepository.existsById(id)).thenReturn(true);
         String result = tourService.tourToDelete(id);
 
 
-        assertEquals(result, "1");
+        assertEquals(result, id);
+
+
 
     }
 
