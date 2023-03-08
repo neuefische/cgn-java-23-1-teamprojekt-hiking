@@ -92,4 +92,32 @@ class TourServiceTest {
         Assertions.assertThat(actual).isEqualTo(testItem3);
     }
 
+
+    @Test
+    void isExceptionThrownCorrectly_WhenTourToUpdateDoesntExists() {
+        String result = "";
+        try {
+            tourService.updateTour("", testItem3DTO);
+        } catch (Exception e) {
+            result = e.getMessage();
+        }
+
+        Assertions.assertThat(result).isEqualTo("409 CONFLICT");
+    }
+
+    @Test
+    void isErrorHandlingForAddTourCorrectly() {
+
+        TourDTO tourDTO = null;
+
+        String result = "";
+        try {
+            tourService.addTour(tourDTO);
+        } catch (Exception e) {
+            result = e.getMessage();
+        }
+
+        Assertions.assertThat(result).isEqualTo("Cannot read field \"title\" because \"tourRequestModel\" is null");
+    }
+
 }
