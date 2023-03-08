@@ -1,5 +1,6 @@
 package de.trailmate.backend.service;
 
+import com.mongodb.client.result.DeleteResult;
 import de.trailmate.backend.model.Tour;
 import de.trailmate.backend.model.TourDTO;
 import de.trailmate.backend.repository.TourRepository;
