@@ -46,7 +46,7 @@ public class TourService {
     }
 
     public Tour updateTour(String id, TourDTO tourRequestModel) {
-        Tour tourToUpdate = tourRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.CONFLICT));
+            tourRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.CONFLICT));
 
         if (tourToUpdate != null) {
                 Tour newTour = new Tour(tourRequestModel);
