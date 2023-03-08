@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.mockito.Mockito.mock;
@@ -95,6 +96,7 @@ class TourServiceTest {
 
     @Test
     void isExceptionThrownCorrectly_WhenTourToUpdateDoesntExists() {
+
         String result = "";
         try {
             tourService.updateTour("", testItem3DTO);
@@ -108,16 +110,20 @@ class TourServiceTest {
     @Test
     void isErrorHandlingForAddTourCorrectly() {
 
-        TourDTO tourDTO = null;
-
         String result = "";
+
+        when(idService.generateId()).thenReturn("1");
+
+        when(tourRepository.save(testItem3))
+                .thenThrow(new NoSuchElementException());
+
         try {
-            tourService.addTour(tourDTO);
+            tourService.addTour(testItem3DTO);
         } catch (Exception e) {
             result = e.getMessage();
         }
 
-        Assertions.assertThat(result).isEqualTo("Cannot read field \"title\" because \"tourRequestModel\" is null");
+        Assertions.assertThat(result).isEqualTo("409 CONFLICT");
     }
 
 }

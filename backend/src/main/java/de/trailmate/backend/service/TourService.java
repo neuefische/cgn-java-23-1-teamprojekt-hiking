@@ -48,16 +48,10 @@ public class TourService {
     public Tour updateTour(String id, TourDTO tourRequestModel) {
             tourRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.CONFLICT));
 
-        if (tourToUpdate != null) {
                 Tour newTour = new Tour(tourRequestModel);
                 newTour.setId(id);
                 tourRepository.save(newTour);
                 return newTour;
-        } else {
-            throw new ResponseStatusException(HttpStatus.CONFLICT);
-        }
-
-
     }
 
 
