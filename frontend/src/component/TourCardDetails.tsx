@@ -3,6 +3,7 @@ import {Link, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import testtwo from "../testtwo.jpg";
+import DeleteTour from "./DeleteTour";
 
 
 export default function TourCardDetails (){
@@ -43,6 +44,7 @@ export default function TourCardDetails (){
                         <p>Start:{details.startLongitude} {details.startLatitude}</p>
                         <p>End: {details.endLongitude}  {details.endLatitude}</p>
                         <Link to={"/tours/edit/" + id}>Edit</Link>
+                        <button type="submit" value="delete" onClick={DeleteTour}>delete</button>
 
                     </div>
                 </div>

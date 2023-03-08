@@ -4,7 +4,7 @@ import de.trailmate.backend.model.Tour;
 import de.trailmate.backend.model.TourDTO;
 import de.trailmate.backend.service.IdService;
 import de.trailmate.backend.service.TourService;
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.Collections;
 import java.util.List;
@@ -13,6 +13,7 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class TourServiceTest {
@@ -35,8 +36,7 @@ class TourServiceTest {
 
         List<Tour> actual = tourService.getTourList();
 
-        Assertions.assertThat(actual)
-                .containsExactly(testItem);
+       assertEquals(actual, testItem);
 
     }
     @Test
@@ -48,7 +48,7 @@ class TourServiceTest {
 
         Tour actual = tourService.getSingleTour("1");
 
-        Assertions.assertThat(actual).isEqualTo(testItem);
+     assertEquals(actual, testItem);
 
     }
 
@@ -62,7 +62,7 @@ class TourServiceTest {
 
         Tour actual = tourService.addTour(testItem2);
 
-        Assertions.assertThat(actual).isEqualTo(testItem);
+       assertEquals(actual, testItem);
 
     }
 
@@ -75,7 +75,7 @@ class TourServiceTest {
             result = e.getMessage();
         }
 
-        Assertions.assertThat(result).isEqualTo("409 CONFLICT");
+        assertEquals(result, "409 CONFLICT");
     }
 
     @Test
@@ -89,7 +89,7 @@ class TourServiceTest {
 
         Tour actual = tourService.updateTour("1",testItem3DTO);
 
-        Assertions.assertThat(actual).isEqualTo(testItem3);
+        assertEquals(actual, testItem3);
     }
 
 
@@ -103,7 +103,7 @@ class TourServiceTest {
             result = e.getMessage();
         }
 
-        Assertions.assertThat(result).isEqualTo("409 CONFLICT");
+        assertEquals(result, "409 CONFLICT");
     }
 
     @Test
@@ -122,7 +122,7 @@ class TourServiceTest {
             result = e.getMessage();
         }
 
-        Assertions.assertThat(result).isEqualTo("409 CONFLICT");
+        assertEquals(result, "409 CONFLICT");
     }
 
 }
