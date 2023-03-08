@@ -34,7 +34,7 @@ public class TourController {
         return tourService.addTour(tourRequestModel);
     }
 
-    @PostMapping("/tours/{id}")
+    @PutMapping("/tours/{id}")
     public Tour updateTour(@PathVariable String id, @RequestBody TourDTO tourRequestModel) {
             return tourService.updateTour(id, tourRequestModel);
     }

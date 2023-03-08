@@ -2,7 +2,7 @@
 
 .header {
     background-color: #146552;
-    height: 500px; /* Höhe des Containers auf die Höhe des Bildes setzen */
+    height: 500px;
     position: relative;
     align-items: center;
     overflow-x: hidden;
@@ -16,7 +16,7 @@
     width: 100%;
     height: 100%;
     object-fit: fill;
-    margin-bottom: 0; /* Margin am unteren Rand entfernen */
+    margin-bottom: 0;
 }
 
 .logo {

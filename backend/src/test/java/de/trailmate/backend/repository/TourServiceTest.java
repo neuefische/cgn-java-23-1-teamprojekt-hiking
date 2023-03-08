@@ -24,7 +24,8 @@ class TourServiceTest {
 
     Tour testItem = new Tour("1", "fancy TestTour", "fancy tour for experts", 50.95554563841488, 6.940264471365975, 50.94339660284997, 6.950264291165975, "expert");
     TourDTO testItem2 = new TourDTO("fancy TestTour", "fancy tour for experts", 50.95554563841488, 6.940264471365975, 50.94339660284997, 6.950264291165975, "expert");
-
+    Tour testItem3 = new Tour("1","Updated Tour", "fancy tour for experts", 50.95554563841488, 6.940264471365975, 50.94339660284997, 6.950264291165975, "expert");
+    TourDTO testItem3DTO = new TourDTO("Updated Tour","fancy tour for experts", 50.95554563841488, 6.940264471365975, 50.94339660284997, 6.950264291165975, "expert");
 
     @Test
     void isGetAllToursResponseCorrectly() {
@@ -75,6 +76,20 @@ class TourServiceTest {
         }
 
         Assertions.assertThat(result).isEqualTo("409 CONFLICT");
+    }
+
+    @Test
+    void isUpdateTourChangeTheTourDataCorrectly() {
+        when(tourRepository.findById("1"))
+                .thenReturn(Optional.ofNullable((testItem)));
+
+        when(tourRepository.save(testItem))
+                .thenReturn((testItem3));
+
+
+        Tour actual = tourService.updateTour("1",testItem3DTO);
+
+        Assertions.assertThat(actual).isEqualTo(testItem3);
     }
 
 }
