@@ -6,7 +6,6 @@ import de.trailmate.backend.service.IdService;
 import de.trailmate.backend.service.TourService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;

@@ -1,7 +1,7 @@
 import React from "react";
 import TourCard from "./TourCard";
 import {Tour} from "../model/Tour";
-import "../Styling/TourGallery.css"
+
 
 
 type TourCardGalleryProps = {

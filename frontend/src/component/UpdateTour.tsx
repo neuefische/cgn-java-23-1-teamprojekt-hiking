@@ -5,13 +5,6 @@ import GetTours from "../hook/GetTours";
 import useUpdateTour from "../hook/UseUpdateTour";
 
 
-const myAsynFunction = async (id: String | undefined) => {
-    const allTours = await GetTours();
-    const tourToUpdate:Tour[] = await allTours.filter((tour) => { return tour.id === id }).map((result:Tour) => { return result  })
-    return tourToUpdate;
-}
-
-
 export default function UpdateTour() {
 
     const params = useParams();
@@ -20,7 +13,7 @@ export default function UpdateTour() {
     const {updateSingleTour} = useUpdateTour();
     const allTours = GetTours();
     const [addTour, setAddTour] = useState<Tour | undefined>();
-    let resetAction = 1;
+
 
 
     const [inputFields, setInputFields] = useState({
