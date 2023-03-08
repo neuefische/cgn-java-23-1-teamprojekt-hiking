@@ -57,7 +57,8 @@ export default function TourCardDetails (){
                         <p>Start:{details.startLongitude} {details.startLatitude}</p>
                         <p>End: {details.endLongitude}  {details.endLatitude}</p>
                         <Link to={"/tours/edit/" + id}>Edit</Link>
-                        <button type="submit" value="delete" onClick={DeleteTour}>delete</button>
+
+                        <button type="submit" value="delete" onClick={()=>handleDeleteTour}>delete</button>
 
                     </div>
                 </div>
