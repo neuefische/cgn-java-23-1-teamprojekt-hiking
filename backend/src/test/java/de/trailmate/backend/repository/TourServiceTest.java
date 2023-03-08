@@ -125,4 +125,34 @@ class TourServiceTest {
         assertEquals(result, "409 CONFLICT");
     }
 
+    @Test
+    void isTourToDeleteDeletingTour(){
+
+        String id = "1";
+        tourRepository.save(testItem);
+        when(tourRepository.save(testItem)).thenReturn(testItem);
+        System.out.println(tourService.getSingleTour(id));
+        String result = tourService.tourToDelete(id);
+
+
+        assertEquals(result, "1");
+
+    }
+
+
+    @Test
+    void isErrorHandlingCorrectWhenTourToDeleteNotExists(){
+
+        String actual = "";
+
+        try{
+            tourService.tourToDelete("62175631254631453");
+        } catch (Exception e){
+            actual = e.getMessage();
+        }
+
+        assertEquals(actual, "409 CONFLICT");
+
+    }
+
 }
