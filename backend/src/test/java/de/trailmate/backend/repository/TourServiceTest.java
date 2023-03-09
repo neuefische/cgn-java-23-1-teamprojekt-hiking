@@ -4,12 +4,12 @@ import de.trailmate.backend.model.Tour;
 import de.trailmate.backend.model.TourDTO;
 import de.trailmate.backend.service.IdService;
 import de.trailmate.backend.service.TourService;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
