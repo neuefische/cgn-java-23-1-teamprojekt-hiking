@@ -56,7 +56,6 @@ class TourServiceTest {
        assertEquals(actual, testItem);
 
     }
-
     @Test
     void getSingleTourWithoutExistingIdGivesErrorCorrectly() {
         String result = "";
