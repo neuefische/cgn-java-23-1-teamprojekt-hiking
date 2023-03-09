@@ -4,24 +4,20 @@ import "../Styling/AddTour.css"
 import AddSingleTour from "../hook/AddSingleTour";
 
 
+
 export default function AddTour() {
 
     const{postSingleTour}=AddSingleTour()
-
     const [addTour, setAddTour] = useState<Tour>();
-
     const [inputFields, setInputFields] = React.useState({
         title: "",
         description: "",
         category: ""
     })
-
-
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         postSingleTour(addTour as Tour)
     }
-
     function handleChange(evt: ChangeEvent<HTMLInputElement>) {
         setInputFields({...inputFields, [evt.target.name]: evt.target.value})
         setAddTour({
@@ -40,13 +36,12 @@ export default function AddTour() {
         <form onSubmit={handleSubmit}>
             <h1>share Tour - share Moments</h1>
             <label>Title</label>
-            <input type="text" value={inputFields.title} onChange={handleChange} name="title"/>
+            <input type="text" value={inputFields.title} onChange={handleChange} name="title" maxLength={40} minLength={3}/>
             <label>Category</label>
-            <input type="text" value={inputFields.category} onChange={handleChange} name="category"/>
+            <input type="text" value={inputFields.category} onChange={handleChange} name="category" maxLength={20} minLength={3}/>
             <label>Description</label>
-            <input type="text" value={inputFields.description} onChange={handleChange} name="description"/>
+            <input type="text" value={inputFields.description} onChange={handleChange} name="description" maxLength={300} minLength={3}  />
             <button onClick={() => handleChange}>share your Moment</button>
         </form>
     )
-
 }

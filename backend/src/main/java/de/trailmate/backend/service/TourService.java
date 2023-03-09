@@ -15,7 +15,6 @@ public class TourService {
 
     private final TourRepository tourRepository;
     private final IdService idService;
-
     public TourService(TourRepository tourRepository, IdService idService) {
         this.tourRepository = tourRepository;
         this.idService = idService;
@@ -40,10 +39,22 @@ public class TourService {
         tour.setId(idService.generateId());
         try {
             return tourRepository.save(tour);
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
     }
 
+    public Tour updateTour(String id, TourDTO tourRequestModel) {
+                Optional<Tour> tourToUpdate = tourRepository.findById(id);
 
+                if(tourToUpdate.isPresent()) {
+
+                    Tour newTour = new Tour(tourRequestModel);
+                    newTour.setId(id);
+                    tourRepository.save(newTour);
+                    return newTour;
+                } else {
+                    throw new ResponseStatusException(HttpStatus.CONFLICT);
+                }
+    }
 }

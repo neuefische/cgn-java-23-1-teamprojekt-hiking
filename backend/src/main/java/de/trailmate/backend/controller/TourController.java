@@ -5,6 +5,7 @@ import de.trailmate.backend.model.TourDTO;
 import de.trailmate.backend.service.TourService;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 @RestController
@@ -23,13 +24,18 @@ public class TourController {
     }
 
     @GetMapping("/tours/{id}")
-    public Tour getTourDetails(@PathVariable String id){
+    public Tour getTourDetails(@PathVariable String id) {
         return tourService.getSingleTour(id);
     }
 
     @PostMapping("/tours/add")
-    public Tour addTour(@RequestBody TourDTO tourRequestModel){
+    public Tour addTour(@RequestBody TourDTO tourRequestModel) {
         return tourService.addTour(tourRequestModel);
+    }
+
+    @PutMapping("/tours/{id}")
+    public Tour updateTour(@PathVariable String id, @RequestBody TourDTO tourRequestModel) {
+            return tourService.updateTour(id, tourRequestModel);
     }
 
 }

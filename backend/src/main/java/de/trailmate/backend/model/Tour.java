@@ -22,7 +22,6 @@ public class Tour {
     double endLatitude;
     String category;
 
-
     public Tour(TourDTO tourRequestModel) {
         this.title = tourRequestModel.title;
         this.description = tourRequestModel.description;

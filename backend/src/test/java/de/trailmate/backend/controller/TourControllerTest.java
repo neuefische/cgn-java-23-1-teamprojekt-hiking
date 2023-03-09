@@ -31,7 +31,6 @@ class TourControllerTest {
     Tour testTour = new Tour("1", "DGHDsgdhsdg", "fancy tour for experts", 50.95554563841488, 6.94026447165975, 50.94339660284997, 6.950264291165975, "expert");
 
 
-
     @Test
     void whenGetAllTours_ThenReturnEmptyList() throws Exception {
 
@@ -54,7 +53,6 @@ class TourControllerTest {
     void whenGetSingleTour_ThenReturnSingleTour() throws Exception {
 
 
-
         tourRepository.save(testTour);
 
         String jsonObj = mapper.writeValueAsString(testTour);
@@ -67,7 +65,6 @@ class TourControllerTest {
                 .andExpect(MockMvcResultMatchers
                         .content().json(jsonObj));
 
-        
 
     }
 
@@ -89,5 +86,33 @@ class TourControllerTest {
 
     }
 
+    @Test
+    @DirtiesContext
+    void whenUpdateTourCalled_isTourUpdatedCorrectly() throws Exception {
 
+      testTour.setId("bd4d11c5-8760-4f99-9020-958e10941fab");
+      tourRepository.save(testTour);
+
+        String jsonObj = """
+            {
+            "title": "DGHDsgdhsdg",
+            "description": "fancy tour for experts",
+            "startLongitude": 50.95554563841488,
+            "startLatitude": 6.94026447165975,
+            "endLongitude": 50.94339660284997,
+            "endLatitude": 6.950264291165975,
+            "category": "expert"
+            }
+        """;
+
+        mockMvc.perform(MockMvcRequestBuilders
+                        .put("/api/tours/bd4d11c5-8760-4f99-9020-958e10941fab")
+                        .contentType(MediaType.APPLICATION_JSON).
+                        content(jsonObj))
+                .andExpect(MockMvcResultMatchers.status()
+                        .isOk())
+                .andExpect(jsonPath("$.title").value("DGHDsgdhsdg"))
+                .andExpect(jsonPath("$.id").value("bd4d11c5-8760-4f99-9020-958e10941fab"))
+        ;
+    }
 }
