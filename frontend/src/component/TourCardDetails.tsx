@@ -7,15 +7,12 @@ import handleDeleteTour from "../hook/DeleteTour";
 import DeleteTour from "../hook/DeleteTour";
 
 
-
 export default function TourCardDetails (){
 
     const handleDeleteTour = DeleteTour()
     const params = useParams();
     const id: string | undefined = params.id;
-
     const [details, setDetails] = useState<Tour | undefined>();
-
     const requestURL:string = "/api/tours/" + id
 
     useEffect(() => {
@@ -26,7 +23,6 @@ export default function TourCardDetails (){
             })
             .catch((error) => console.error(error));
     }, [requestURL]);
-
 
 
     if (!details) {
@@ -66,7 +62,5 @@ export default function TourCardDetails (){
                 </div>
             </div>
         </div>
-
     )
-
 }

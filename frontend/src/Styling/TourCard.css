@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
-
-
-
 .container {
     display: flex;
     padding: 0;
@@ -25,9 +22,7 @@
     overflow: hidden;
     transition: transform 0.5s;
 
-
 }
-
 
    .card-info {
        display: flex;
@@ -53,3 +48,4 @@
        border-radius: 6px 6px 0 0;
        opacity: 0.91;
    }
+

@@ -10,8 +10,6 @@ import AddTour from "./component/AddTour";
 import Footer from "./component/Footer";
 import UpdateTour from "./component/UpdateTour";
 
-
-
 function App() {
 
     const {tours, getTours} = GetTours()
@@ -32,9 +30,7 @@ function App() {
             <Route path="/tours/edit/:id" element={<UpdateTour />}/>
         </Routes>
         <Footer/>
-
     </div>
   );
 }
-
 export default App;

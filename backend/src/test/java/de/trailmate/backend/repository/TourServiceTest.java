@@ -10,18 +10,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 class TourServiceTest {
-
     TourRepository tourRepository = mock(TourRepository.class);
     IdService idService = mock(IdService.class);
     TourService tourService = new TourService(tourRepository, idService);
-
 
     Tour testItem = new Tour("1", "fancy TestTour", "fancy tour for experts", 50.95554563841488, 6.940264471365975, 50.94339660284997, 6.950264291165975, "expert");
     TourDTO testItem2 = new TourDTO("fancy TestTour", "fancy tour for experts", 50.95554563841488, 6.940264471365975, 50.94339660284997, 6.950264291165975, "expert");
@@ -30,7 +26,6 @@ class TourServiceTest {
 
     @Test
     void isGetAllToursResponseCorrectly() {
-
         when(tourRepository.findAll())
                 .thenReturn(Collections.singletonList(testItem));
 
@@ -41,8 +36,6 @@ class TourServiceTest {
     }
     @Test
     void isGetSingleTourResponseCorrectly() {
-
-
         when(tourRepository.findById("1"))
                 .thenReturn(Optional.ofNullable((testItem)));
 
@@ -86,16 +79,13 @@ class TourServiceTest {
         when(tourRepository.save(testItem))
                 .thenReturn((testItem3));
 
-
         Tour actual = tourService.updateTour("1",testItem3DTO);
 
         assertEquals(actual, testItem3);
     }
 
-
     @Test
     void isExceptionThrownCorrectly_WhenTourToUpdateDoesntExists() {
-
         String result = "";
         try {
             tourService.updateTour("", testItem3DTO);
@@ -108,7 +98,6 @@ class TourServiceTest {
 
     @Test
     void isErrorHandlingForAddTourCorrectly() {
-
         String result = "";
 
         when(idService.generateId()).thenReturn("1");

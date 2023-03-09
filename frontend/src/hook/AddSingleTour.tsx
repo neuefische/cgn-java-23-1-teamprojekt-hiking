@@ -2,11 +2,9 @@ import {Tour} from "../model/Tour";
 import axios from "axios";
 
 export default function AddSingleTour(){
-
     function postSingleTour(props: Tour | undefined){
 
         if(props) {
-
             axios.post("/api/tours/add", {
                 id: props.id,
                 title: props.title,
@@ -17,12 +15,11 @@ export default function AddSingleTour(){
                 endLatitude: props.endLatitude,
                 category: props.category
             })
-                .then((response) => {
+                .then(() => {
                     window.location.assign("/tours");
                 })
                 .catch((error) => console.error(error))
         }
     }
-
     return {postSingleTour}
 }
