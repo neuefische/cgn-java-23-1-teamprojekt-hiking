@@ -31,7 +31,7 @@ class TourServiceTest {
 
         List<Tour> actual = tourService.getTourList();
 
-       assertEquals(actual, testItem);
+       assertEquals(actual, List.of(testItem));
 
     }
     @Test
