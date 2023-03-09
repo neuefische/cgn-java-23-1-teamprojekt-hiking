@@ -9,7 +9,6 @@ export default function TourCardDetails (){
     const params = useParams();
     const id: string | undefined = params.id;
     const [details, setDetails] = useState<Tour | undefined>();
-
     const requestURL:string = "/api/tours/" + id
 
     useEffect(() => {
