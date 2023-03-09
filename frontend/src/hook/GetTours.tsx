@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {Tour} from "../model/Tour";
 import axios from "axios";
+import DeleteTour from "./DeleteTour";
 
 
 export default function GetTours() {
@@ -13,7 +14,7 @@ export default function GetTours() {
                 .catch((error) => console.error(error))
     }
 
-    useEffect(() => getTours(), [])
+    useEffect(() => getTours(), [tours])
 
     return tours
 }
