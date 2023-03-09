@@ -4,12 +4,10 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import testtwo from "../testtwo.jpg";
 
-
 export default function TourCardDetails (){
 
     const params = useParams();
     const id: string | undefined = params.id;
-
     const [details, setDetails] = useState<Tour | undefined>();
 
     const requestURL:string = "/api/tours/" + id
@@ -22,7 +20,6 @@ export default function TourCardDetails (){
             })
             .catch((error) => console.error(error));
     }, [requestURL]);
-
 
 
     if (!details) {
@@ -48,7 +45,5 @@ export default function TourCardDetails (){
                 </div>
             </div>
         </div>
-
     )
-
 }

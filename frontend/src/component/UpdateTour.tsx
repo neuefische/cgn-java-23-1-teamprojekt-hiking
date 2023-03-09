@@ -4,24 +4,18 @@ import {useParams} from "react-router-dom";
 import GetTours from "../hook/GetTours";
 import useUpdateTour from "../hook/UseUpdateTour";
 
-
 export default function UpdateTour() {
 
     const params = useParams();
     const id: string | undefined = params.id;
-
     const {updateSingleTour} = useUpdateTour();
     const allTours = GetTours();
     const [addTour, setAddTour] = useState<Tour | undefined>();
-
-
-
     const [inputFields, setInputFields] = useState({
         title: "",
         description: "",
         category: "",
     });
-
 
     useEffect(() => {
         const tour = allTours.find((tour) => tour.id === id);
@@ -47,16 +41,11 @@ export default function UpdateTour() {
             }
     }
 
-
-
       const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
           event.preventDefault();
           updateSingleTour(addTour as Tour)
           console.log(addTour)
       }
-
-
-
 
       function handleChange(evt: ChangeEvent<HTMLInputElement>) {
           setInputFields({...inputFields, [evt.target.name]: evt.target.value})

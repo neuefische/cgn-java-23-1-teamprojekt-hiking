@@ -16,14 +16,12 @@ export default function useUpdateTour(){
                 endLatitude: props.endLatitude,
                 category: props.category
             })
-                .then((response) => {
+                .then(() => {
                     console.log(props)
                     window.location.assign("/tours")
                 })
                 .catch((error) => console.error(error))
         }
-
     }
-
  return {updateSingleTour}
 }

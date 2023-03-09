@@ -88,25 +88,22 @@ class TourControllerTest {
 
     @Test
     @DirtiesContext
-    void whenUpdateToureCalled_isTourUpdatedCorrectly() throws Exception {
-
-
+    void whenUpdateTourCalled_isTourUpdatedCorrectly() throws Exception {
 
       testTour.setId("bd4d11c5-8760-4f99-9020-958e10941fab");
       tourRepository.save(testTour);
 
-
-        String jsonObj = "{\n" +
-                "   \"title\": \"DGHDsgdhsdg\",\n" +
-                "   \"description\": \"fancy tour for experts\",\n" +
-                "   \"startLongitude\": 50.95554563841488,\n" +
-                "   \"startLatitude\": 6.94026447165975,\n" +
-                "   \"endLongitude\": 50.94339660284997,\n" +
-                "   \"endLatitude\": 6.950264291165975,\n" +
-                "   \"category\": \"expert\"\n" +
-                "}";
-        
-
+        String jsonObj = """
+            {
+            "title": "DGHDsgdhsdg",
+            "description": "fancy tour for experts",
+            "startLongitude": 50.95554563841488,
+            "startLatitude": 6.94026447165975,
+            "endLongitude": 50.94339660284997,
+            "endLatitude": 6.950264291165975,
+            "category": "expert"
+            }
+        """;
 
         mockMvc.perform(MockMvcRequestBuilders
                         .put("/api/tours/bd4d11c5-8760-4f99-9020-958e10941fab")
@@ -118,9 +115,4 @@ class TourControllerTest {
                 .andExpect(jsonPath("$.id").value("bd4d11c5-8760-4f99-9020-958e10941fab"))
         ;
     }
-
-
 }
-
-
-

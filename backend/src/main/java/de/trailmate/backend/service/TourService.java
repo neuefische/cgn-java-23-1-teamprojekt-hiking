@@ -15,7 +15,6 @@ public class TourService {
 
     private final TourRepository tourRepository;
     private final IdService idService;
-
     public TourService(TourRepository tourRepository, IdService idService) {
         this.tourRepository = tourRepository;
         this.idService = idService;
@@ -58,6 +57,4 @@ public class TourService {
                     throw new ResponseStatusException(HttpStatus.CONFLICT);
                 }
     }
-
-
 }

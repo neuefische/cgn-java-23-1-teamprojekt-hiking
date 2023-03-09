@@ -3,7 +3,6 @@ import headerImg from "../headBackground.png"
 import "../Styling/Header.css"
 import {Link} from "react-router-dom";
 
-
 export default function Header(){
 
     return (

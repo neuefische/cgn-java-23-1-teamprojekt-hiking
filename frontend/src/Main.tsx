@@ -1,7 +1,7 @@
 import homepageBGR from "../src/homepageBGR.png"
 import logo from "./trailmatelogo.png";
 import React from "react";
-import './Styling/Main.css'
+import './Styling/Homepage.css'
 
 export default function Main() {
 
