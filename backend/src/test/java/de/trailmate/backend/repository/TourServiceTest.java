@@ -9,7 +9,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,7 +31,6 @@ class TourServiceTest {
         List<Tour> actual = tourService.getTourList();
 
        assertEquals(actual, List.of(testItem));
-
     }
     @Test
     void isGetSingleTourResponseCorrectly() {
