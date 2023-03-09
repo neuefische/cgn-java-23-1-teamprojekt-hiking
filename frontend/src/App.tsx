@@ -26,7 +26,6 @@ function App() {
             <Route path="/tours/:id" element={<TourCardDetails/>}/>
             <Route path="/tours/add" element={<AddTour/>}/>
             <Route path="/tours/edit/:id" element={<UpdateTour />}/>
-
         </Routes>
         <Footer/>
 
