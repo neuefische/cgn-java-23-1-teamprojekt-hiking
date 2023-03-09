@@ -47,8 +47,12 @@ export default function UpdateTour() {
           console.log(addTour)
       }
 
-      function handleChange(evt: ChangeEvent<HTMLInputElement>) {
-          setInputFields({...inputFields, [evt.target.name]: evt.target.value})
+      function useHandleChange(event: ChangeEvent<HTMLInputElement>) {
+          event.preventDefault();
+          setInputFields({...inputFields, [event.target.name]: event.target.value})
+      }
+
+      useEffect(() => {
           setAddTour({
               title: inputFields.title.toString(),
               description: inputFields.description.toString(),
@@ -59,18 +63,21 @@ export default function UpdateTour() {
               startLatitude: 12.123,
               startLongitude: 12.123
           })
-      }
+
+          console.log(addTour)
+
+      }, [inputFields, setInputFields])
 
       return (
           <form onSubmit={handleSubmit}>
               <h1>share Tour - share Moments</h1>
               <label>Title</label>
-              <input type="text" value={inputFields.title} onChange={handleChange} name="title"/>
+              <input type="text" value={inputFields.title} onChange={useHandleChange} name="title"/>
               <label>Category</label>
-              <input type="text" value={inputFields.category} onChange={handleChange} name="category"/>
+              <input type="text" value={inputFields.category} onChange={useHandleChange} name="category"/>
               <label>Description</label>
-              <input type="text" value={inputFields.description} onChange={handleChange} name="description"/>
-              <button onClick={() => handleChange}>Share your Moment</button>
+              <input type="text" value={inputFields.description} onChange={useHandleChange} name="description"/>
+              <button onClick={() => useHandleChange}>Share your Moment</button>
               <button type="reset" value="Reset" onClick={resetForm}>Reset</button>
           </form>
       )
