@@ -11,7 +11,7 @@ export default function UpdateTour() {
     const id: string | undefined = params.id;
 
     const {updateSingleTour} = useUpdateTour();
-    const allTours = GetTours();
+    const {tours, getTours} = GetTours();
     const [addTour, setAddTour] = useState<Tour | undefined>();
 
 
@@ -24,7 +24,7 @@ export default function UpdateTour() {
 
 
     useEffect(() => {
-        const tour = allTours.find((tour) => tour.id === id);
+        const tour = tours.find((tour) => tour.id === id);
         if (tour) {
             setAddTour(tour);
             setInputFields({
@@ -33,10 +33,10 @@ export default function UpdateTour() {
                 category: tour.category,
             });
         }
-    }, [id, allTours]);
+    }, [id, tours]);
 
     const resetForm = () => {
-            const tour = allTours.find((tour) => tour.id === id);
+            const tour = tours.find((tour) => tour.id === id);
             if (tour) {
                 setAddTour(tour);
                 setInputFields({

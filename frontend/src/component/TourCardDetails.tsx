@@ -36,9 +36,11 @@ export default function TourCardDetails (){
 
     const handleSubmit: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.preventDefault();
-        handleDeleteTour(details)
+    }
 
-
+    const handleSubmitDelete: MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.preventDefault();
+        handleDeleteTour.handleDeleteTour(details)
     }
 
 
@@ -58,7 +60,7 @@ export default function TourCardDetails (){
                         <p>End: {details.endLongitude}  {details.endLatitude}</p>
                         <Link to={"/tours/edit/" + id}>Edit</Link>
 
-                        <button type="submit" value="delete" onClick={()=>handleDeleteTour}>delete</button>
+                        <button type="submit" value="delete" onClick={handleSubmitDelete}>delete</button>
 
                     </div>
                 </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import GetTours from "./hook/GetTours";
 import TourCardGallery from "./component/TourCardGallery";
@@ -14,7 +14,11 @@ import UpdateTour from "./component/UpdateTour";
 
 function App() {
 
-    const tours = GetTours()
+    const {tours, getTours} = GetTours()
+
+    useEffect(() => {
+        getTours();
+    }, [] );
 
   return (
     <div className="App">

@@ -6,7 +6,7 @@ import DeleteTour from "./DeleteTour";
 
 export default function GetTours() {
 
-    const [tours, setTours] = useState<Tour[]>([])
+    const [tours, setTours ] = useState<Tour[]>([])
 
     function getTours(){
             axios.get("/api/tours")
@@ -16,5 +16,5 @@ export default function GetTours() {
 
     useEffect(() => getTours(), [tours])
 
-    return tours
+    return {tours, getTours}
 }
