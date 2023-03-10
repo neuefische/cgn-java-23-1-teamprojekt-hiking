@@ -9,8 +9,25 @@ import TourCardDetails from "./component/TourCardDetails";
 import AddTour from "./component/AddTour";
 import Footer from "./component/Footer";
 import UpdateTour from "./component/UpdateTour";
+import axios from "axios";
+import Cookies from "js-cookie"
+import SignUp from "./security/SignUp";
+import SignIn from "./security/SignIn";
+import useAuthRedirect from "./hook/useAuthRedirect";
 
-function App() {
+axios.interceptors.request.use(function (config) {
+        return fetch("/api/csrf").then(() => {
+            config.headers["X-XSRF-TOKEN"] = Cookies.get("XSRF-TOKEN");
+            return config;
+        });
+    }, function (error) {
+        return Promise.reject(error);
+    });
+
+
+    function App() {
+
+        useAuthRedirect()
 
     const {tours, getTours} = useGetTours()
 

@@ -13,6 +13,10 @@ export default function Header(){
                 <Link to={"/tours"}>TOURS</Link>
                 <b className={"button-divtext"}>|</b>
                 <Link to={"/tours/add"}>ADD TOUR</Link>
+                <b className={"button-divtext"}>|</b>
+                <Link to={"/sign-in"}>LOG IN</Link>
+                <b className={"button-divtext"}>|</b>
+                <Link to={"/sign-up"}>SIGN UP</Link>
             </div>
             <img src={headerImg} alt="header" className="background-image" />
             <div id="foglayer_01" className="fog">
