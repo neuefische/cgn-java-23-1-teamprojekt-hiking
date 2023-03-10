@@ -144,7 +144,7 @@ class TourControllerTest {
                 .andExpect(MockMvcResultMatchers.status()
                         .isOk());
 
-        Assertions.assertEquals(tourRepository.findById(testTour.getId()), Optional.empty());
+        Assertions.assertEquals(Optional.empty(), tourRepository.findById(testTour.getId()));
     }
 
 }
