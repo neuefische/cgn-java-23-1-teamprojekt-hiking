@@ -65,7 +65,7 @@ class TourServiceTest {
             result = e.getMessage();
         }
 
-        assertEquals(result, "409 CONFLICT");
+        assertEquals( "409 CONFLICT", result);
     }
 
     @Test
@@ -90,7 +90,7 @@ class TourServiceTest {
             result = e.getMessage();
         }
 
-        assertEquals(result, "409 CONFLICT");
+        assertEquals( "409 CONFLICT", result);
     }
 
     @Test
@@ -108,7 +108,7 @@ class TourServiceTest {
             result = e.getMessage();
         }
 
-        assertEquals(result, "409 CONFLICT");
+        assertEquals( "409 CONFLICT", result);
     }
 
     @Test
@@ -138,7 +138,7 @@ class TourServiceTest {
             actual = e.getMessage();
         }
 
-        assertEquals(actual, "409 CONFLICT");
+        assertEquals("409 CONFLICT",actual);
 
     }
 
