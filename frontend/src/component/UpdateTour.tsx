@@ -31,7 +31,7 @@ export default function UpdateTour() {
 
     useEffect(() => {
         getTours();
-    }, [])
+    }, [getTours])
 
     const resetForm = () => {
             const tour = tours.find((tour) => tour.id === id);
@@ -65,7 +65,7 @@ export default function UpdateTour() {
             startLatitude: 12.123,
             startLongitude: 12.123
         })
-    }, [setInputFields, inputFields])
+    }, [id, inputFields])
 
       return (
           <form onSubmit={handleSubmit}>
