@@ -1,6 +1,5 @@
 import {Tour} from "../model/Tour";
 import axios from "axios";
-
 export default function AddSingleTour(){
     function postSingleTour(props: Tour | undefined){
 
