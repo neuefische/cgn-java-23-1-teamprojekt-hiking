@@ -2,6 +2,7 @@ import React, {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import {Tour} from "../model/Tour";
 import "../Styling/AddTour.css"
 import AddSingleTour from "../hook/AddSingleTour";
+import useAuthRedirect from "../hook/useAuthRedirect";
 
 export default function AddTour() {
 
