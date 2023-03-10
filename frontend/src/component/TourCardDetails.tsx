@@ -37,7 +37,7 @@ export default function TourCardDetails (){
             <div className="cards">
                 <div className="card-item">
                     <div className="card-image">
-                        <img src={testtwo}  height={"200"} width={"100%"} alt={"tourcard-image"}/>
+                        <img src={testtwo}  height={"200"} width={"100%"} alt={"tourcard"}/>
                     </div>
                     <div className="card-info">
                         <p>{details.title}</p>

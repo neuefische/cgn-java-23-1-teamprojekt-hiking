@@ -16,7 +16,7 @@ function App() {
 
     useEffect(() => {
         getTours();
-    }, [] );
+    }, [getTours] );
 
   return (
     <div className="App">

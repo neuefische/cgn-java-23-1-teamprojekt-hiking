@@ -1,16 +1,18 @@
-import {useState} from "react";
-import {Tour} from "../model/Tour";
+import { useState, useCallback } from "react";
+import { Tour } from "../model/Tour";
 import axios from "axios";
 
 export default function useGetTours() {
+    const [tours, setTours] = useState<Tour[]>([]);
 
-    const [tours, setTours] = useState<Tour[]>([])
-    function getTours(){
-            axios.get("/api/tours")
-                .then((response) => {
-                    setTours(response.data)})
-                .catch((error) => console.error(error))
+    const getTours = useCallback(() => {
+        axios
+            .get("/api/tours")
+            .then((response) => {
+                setTours(response.data);
+            })
+            .catch((error) => console.error(error));
+    }, []);
 
-    }
-    return {tours, getTours}
+    return { tours, getTours };
 }
