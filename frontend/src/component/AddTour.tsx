@@ -5,6 +5,7 @@ import AddSingleTour from "../hook/AddSingleTour";
 import useAuthRedirect from "../hook/useAuthRedirect";
 
 export default function AddTour() {
+    useAuthRedirect()
 
     const{postSingleTour}=AddSingleTour()
     const [addTour, setAddTour] = useState<Tour>();

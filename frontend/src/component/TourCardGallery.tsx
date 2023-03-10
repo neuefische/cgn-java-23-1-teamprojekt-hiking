@@ -7,6 +7,8 @@ type TourCardGalleryProps = {
     tourList: Tour[]
 }
 export default function TourCardGallery(props: TourCardGalleryProps) {
+    useAuthRedirect()
+
 
     const displayCards = props.tourList.map((tour) => {
         return TourCard(tour);
