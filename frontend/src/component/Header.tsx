@@ -14,7 +14,7 @@ export default function Header(){
                 <b className={"button-divtext"}>|</b>
                 <Link to={"/tours/add"}>ADD TOUR</Link>
             </div>
-            <img src={headerImg} alt="cant find image" className="background-image" />
+            <img src={headerImg} alt="header-image" className="background-image" />
             <div id="foglayer_01" className="fog">
                 <div className="image01"></div>
                 <div className="image02"></div>

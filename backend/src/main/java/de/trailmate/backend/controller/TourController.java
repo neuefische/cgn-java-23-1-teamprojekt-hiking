@@ -37,6 +37,10 @@ public class TourController {
     public Tour updateTour(@PathVariable String id, @RequestBody TourDTO tourRequestModel) {
             return tourService.updateTour(id, tourRequestModel);
     }
+    @DeleteMapping("/tours/delete/{id}")
+    public String deleteTour(@PathVariable String id) {
+        return tourService.tourToDelete(id);
+    }
 
 }
 

@@ -11,7 +11,7 @@ export default function TourCard(props: Tour) {
             <div className="cards">
                 <div className="card-item">
                     <div className="card-image">
-                        <img src={testtwo}  height={"200"} width={"100%"} alt={"TourCard Image"}/>
+                        <img src={testtwo} height={"200"} width={"100%"} alt={"tourcard-image"}/>
                     </div>
                     <div className="card-info">
                         <Link to={"/tours/" + props.id}>Details</Link>

@@ -1,17 +1,16 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {Tour} from "../model/Tour";
 import axios from "axios";
 
-export default function GetTours() {
+export default function useGetTours() {
 
     const [tours, setTours] = useState<Tour[]>([])
     function getTours(){
             axios.get("/api/tours")
-                .then((response) => { setTours(response.data)})
+                .then((response) => {
+                    setTours(response.data)})
                 .catch((error) => console.error(error))
+
     }
-
-    useEffect(() => getTours(), [])
-
-    return tours
+    return {tours, getTours}
 }

@@ -3,6 +3,7 @@ package de.trailmate.backend.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.trailmate.backend.model.Tour;
 import de.trailmate.backend.repository.TourRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,6 +13,8 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.util.Optional;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
@@ -115,4 +118,33 @@ class TourControllerTest {
                 .andExpect(jsonPath("$.id").value("bd4d11c5-8760-4f99-9020-958e10941fab"))
         ;
     }
+
+    @Test
+    @DirtiesContext
+    void whenTourDeleted_isTourActuallyDeleted() throws Exception{
+        testTour.setId("bd4d11c5-8760-4f99-9020-958e10941fab");
+        tourRepository.save(testTour);
+
+        String jsonObj = """
+            {
+            "title": "DGHDsgdhsdg",
+            "description": "fancy tour for experts",
+            "startLongitude": 50.95554563841488,
+            "startLatitude": 6.94026447165975,
+            "endLongitude": 50.94339660284997,
+            "endLatitude": 6.950264291165975,
+            "category": "expert"
+            }
+        """;
+
+        mockMvc.perform(MockMvcRequestBuilders
+                        .delete("/api/tours/delete/bd4d11c5-8760-4f99-9020-958e10941fab")
+                        .contentType(MediaType.APPLICATION_JSON).
+                        content(jsonObj))
+                .andExpect(MockMvcResultMatchers.status()
+                        .isOk());
+
+        Assertions.assertEquals(Optional.empty(), tourRepository.findById(testTour.getId()));
+    }
+
 }

@@ -2,11 +2,8 @@ import {Tour} from "../model/Tour";
 import axios from "axios";
 
 export default function useUpdateTour(){
-
     function updateSingleTour(props: Tour | undefined){
-
         if(props) {
-
             axios.put("/api/tours/" + props.id, {
                 title: props.title,
                 description: props.description,
