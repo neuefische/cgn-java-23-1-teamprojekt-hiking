@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './App.css';
-import GetTours from "./hook/GetTours";
+import useGetTours from "./hook/useGetTours";
 import TourCardGallery from "./component/TourCardGallery";
 import Header from "./component/Header";
 import {Route, Routes} from "react-router-dom";
@@ -12,7 +12,7 @@ import UpdateTour from "./component/UpdateTour";
 
 function App() {
 
-    const {tours, getTours} = GetTours()
+    const {tours, getTours} = useGetTours()
 
     useEffect(() => {
         getTours();

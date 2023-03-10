@@ -3,7 +3,7 @@ import {Tour} from "../model/Tour";
 import axios from "axios";
 import DeleteTour from "./DeleteTour";
 
-export default function GetTours() {
+export default function useGetTours() {
 
     const [tours, setTours] = useState<Tour[]>([])
     function getTours(){
@@ -12,7 +12,6 @@ export default function GetTours() {
                 .catch((error) => console.error(error))
     }
 
-    useEffect(() => getTours(), [tours])
 
     return {tours, getTours}
 }

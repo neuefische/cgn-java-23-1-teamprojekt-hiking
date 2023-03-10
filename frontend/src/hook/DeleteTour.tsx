@@ -1,7 +1,7 @@
 import axios from "axios";
 import {FormEvent, MouseEventHandler, useEffect} from "react";
 import {Tour} from "../model/Tour";
-import GetTours from "./GetTours";
+import useGetTours from "./useGetTours";
 import {useNavigate} from "react-router-dom";
 
 export default function DeleteTour(){

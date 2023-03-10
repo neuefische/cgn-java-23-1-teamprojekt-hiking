@@ -13,31 +13,28 @@ export default function AddTour() {
         description: "",
         category: ""
     })
+
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         postSingleTour(addTour as Tour)
     }
-
     function handleChange(evt: ChangeEvent<HTMLInputElement>) {
-        evt.preventDefault()
         setInputFields({...inputFields, [evt.target.name]: evt.target.value})
+
     }
 
     useEffect(() => {
         setAddTour({
-            title: inputFields.title.toString(),
-            description: inputFields.description.toString(),
-            category: inputFields.category.toString(),
-            id: "123",
+            title: inputFields.title,
+            description: inputFields.description,
+            category: inputFields.category,
+            id: "ABCD123",
             endLatitude: 12.123,
             endLongitude: 12.123,
             startLatitude: 12.123,
             startLongitude: 12.123
         })
-
-        console.log(addTour)
-
-    }, [setInputFields])
+    }, [setInputFields, inputFields])
 
     return (
         <form onSubmit={handleSubmit}>
