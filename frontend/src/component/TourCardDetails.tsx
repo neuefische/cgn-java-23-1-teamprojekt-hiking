@@ -3,7 +3,6 @@ import {Link, useParams} from "react-router-dom";
 import React, {MouseEventHandler, useEffect, useState} from "react";
 import axios from "axios";
 import testtwo from "../testtwo.jpg";
-import handleDeleteTour from "../hook/DeleteTour";
 import DeleteTour from "../hook/DeleteTour";
 
 
@@ -30,9 +29,7 @@ export default function TourCardDetails (){
     }
 
 
-    const handleSubmit: MouseEventHandler<HTMLButtonElement> = (event) => {
-        event.preventDefault();
-    }
+
 
     const handleSubmitDelete: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.preventDefault();
