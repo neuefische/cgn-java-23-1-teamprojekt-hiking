@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import TourCard from "./TourCard";
 import {Tour} from "../model/Tour";
+import useGetTours from "../hook/useGetTours";
 
 
 type TourCardGalleryProps = {
@@ -9,6 +10,8 @@ type TourCardGalleryProps = {
 
 export default function TourCardGallery(props: TourCardGalleryProps) {
 
+
+
     const displayCards = props.tourList.map((tour) => {
         return TourCard(tour);
     })
@@ -16,7 +19,6 @@ export default function TourCardGallery(props: TourCardGalleryProps) {
     return(
         <div className="TourGallery">
             {displayCards}
-
         </div>
     )
 }

@@ -9,17 +9,19 @@ export default function DeleteTour(){
     const navigate = useNavigate()
 
 
-
     function handleDeleteTour(props: Tour){
+
+
+
 
         if(props){
             axios
                 .delete(`/api/tours/delete/` + props.id)
-                .then((response) => {
+                .then(() => {
                     console.log(`Tour with ID  deleted successfully`);
                     navigate("/tours", {replace: true})
                 })
-                .catch((error) => {
+                .catch(() => {
                     console.error(`Deleting tour with ID  was not successful`);
                 });
 

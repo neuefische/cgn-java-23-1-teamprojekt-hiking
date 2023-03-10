@@ -8,8 +8,10 @@ export default function useGetTours() {
     const [tours, setTours] = useState<Tour[]>([])
     function getTours(){
             axios.get("/api/tours")
-                .then((response) => { setTours(response.data)})
+                .then((response) => {
+                    setTours(response.data)})
                 .catch((error) => console.error(error))
+
     }
 
 
