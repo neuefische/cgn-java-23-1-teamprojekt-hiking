@@ -3,7 +3,6 @@ import {Tour} from "../model/Tour";
 import "../Styling/AddTour.css"
 import AddSingleTour from "../hook/AddSingleTour";
 
-
 export default function AddTour() {
 
     const{postSingleTour}=AddSingleTour()
@@ -18,9 +17,9 @@ export default function AddTour() {
         event.preventDefault();
         postSingleTour(addTour as Tour)
     }
+
     function handleChange(evt: ChangeEvent<HTMLInputElement>) {
         setInputFields({...inputFields, [evt.target.name]: evt.target.value})
-
     }
 
     useEffect(() => {

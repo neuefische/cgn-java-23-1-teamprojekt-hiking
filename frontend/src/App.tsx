@@ -18,10 +18,8 @@ function App() {
         getTours();
     }, [] );
 
-
   return (
     <div className="App">
-
         <Header/>
         <Routes>
             <Route path="/" element={<Main/>}></Route>

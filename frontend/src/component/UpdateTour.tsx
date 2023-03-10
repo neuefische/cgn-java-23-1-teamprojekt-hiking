@@ -17,10 +17,7 @@ export default function UpdateTour() {
         category: "",
     });
 
-
-
     useEffect(() => {
-
         const tour = tours.find((tour) => tour.id === id);
         if (tour) {
             setAddTour(tour);
@@ -52,9 +49,9 @@ export default function UpdateTour() {
         event.preventDefault();
         updateSingleTour(addTour as Tour)
     }
+
     function handleChange(evt: ChangeEvent<HTMLInputElement>) {
         setInputFields({...inputFields, [evt.target.name]: evt.target.value})
-
     }
 
     useEffect(() => {

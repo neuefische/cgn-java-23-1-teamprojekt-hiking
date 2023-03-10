@@ -23,20 +23,14 @@ export default function TourCardDetails (){
             .catch((error) => console.error(error));
     }, [requestURL]);
 
-
     if (!details) {
         return <h1>Error loading data</h1>;
     }
-
-
-
 
     const handleSubmitDelete: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.preventDefault();
         handleDeleteTour.handleDeleteTour(details)
     }
-
-
 
     return(
         <div className="TourCard">
@@ -52,9 +46,7 @@ export default function TourCardDetails (){
                         <p>Start:{details.startLongitude} {details.startLatitude}</p>
                         <p>End: {details.endLongitude}  {details.endLatitude}</p>
                         <Link to={"/tours/edit/" + id}>Edit</Link>
-
                         <button type="submit" value="delete" onClick={handleSubmitDelete}>delete</button>
-
                     </div>
                 </div>
             </div>
