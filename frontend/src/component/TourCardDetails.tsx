@@ -32,6 +32,7 @@ export default function TourCardDetails (){
         handleDeleteTour.handleDeleteTour(details)
     }
 
+
     return(
         <div className="TourCard">
             <div className="cards">
@@ -40,13 +41,20 @@ export default function TourCardDetails (){
                         <img src={testtwo}  height={"200"} width={"100%"} alt={"tourcard"}/>
                     </div>
                     <div className="card-info">
+                        <p className={"card-info-tour"}>Tour:</p>
                         <p>{details.title}</p>
+                        <p className={"card-info-category"}>Difficulty level:</p>
                         <p>{details.category}</p>
+                        <p className={"card-info-description"}>Description:</p>
                         <p>{details.description}</p>
                         <p>Start:{details.startLongitude} {details.startLatitude}</p>
                         <p>End: {details.endLongitude}  {details.endLatitude}</p>
                         <Link to={"/tours/edit/" + id}>Edit</Link>
-                        <button type="submit" value="delete" onClick={handleSubmitDelete}>delete</button>
+                        <button className={"backwards-button"}>
+                        <Link to={"/tours"}><img src={"/back.png"} width={"30px"} height={"30px"}/></Link>
+                    </button>
+                        <button className={"delete-button"} type="submit" value="delete" onClick={handleSubmitDelete}><img src={"/delete.png"}/></button>
+
                     </div>
                 </div>
             </div>

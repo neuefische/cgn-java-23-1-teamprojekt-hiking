@@ -49,7 +49,7 @@ export default function AddTour() {
             <label>Description</label>
             <input type="text" value={inputFields.description} onChange={handleChange} name="description"
                    maxLength={300} minLength={3}/>
-            <button onClick={() => handleChange}>share your Moment</button>
+            <button className={"add-button"} onClick={() => handleChange}>share your Moment</button>
         </form>
     )
 }

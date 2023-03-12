@@ -18,10 +18,10 @@
 }
 
 .logo {
-    position: relative;
+    position: absolute;
     padding-top: 15px;
     padding-left: 20px;
-    z-index: 0;
+    z-index: 1;
 }
 
 .background-image {

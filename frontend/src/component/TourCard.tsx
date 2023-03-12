@@ -14,11 +14,19 @@ export default function TourCard(props: Tour) {
                         <img src={testtwo} height={"200"} width={"100%"} alt={"tourcard"}/>
                     </div>
                     <div className="card-info">
-                        <Link to={"/tours/" + props.id}>Details</Link>
-                        <Link to={"/tours/edit/" + props.id}>Edit</Link>
+                        <p className={"card-info-tour"}>Tour:</p>
                         <p>{props.title}</p>
-                        <p>{props.description}</p>
+                        <p className={"card-info-category"}>Difficulty level:</p>
                         <p>{props.category}</p>
+                        <p className={"card-info-description"}>Description:</p>
+                        <p>{props.description}</p>
+
+                        <button className="card-info-btn-details">
+                        <Link to={"/tours/" + props.id}>Details</Link>
+                    </button>
+                        <button className="card-info-btn-edit">
+                            <Link to={"/tours/edit/" + props.id}>Edit</Link>
+                        </button>
                     </div>
                 </div>
             </div>

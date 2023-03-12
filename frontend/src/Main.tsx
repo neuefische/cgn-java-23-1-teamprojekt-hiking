@@ -13,13 +13,11 @@ export default function Main() {
                     <p className={"subtitle-text"}>Trailmate is a website where users can discover hiking trails and add their own hiking routes. With a variety of trails and user-generated content, Trailmate is a one-stop destination for outdoor enthusiasts looking to explore new paths. Whether you're a seasoned hiker or a beginner, Trailmate has something for everyone.</p>
                 </div>
                 <div className={"overlay"}>
-                    <img src={logo} alt="Logo" className="logo" style={{ height: '300px', width: '300px' }} />
+                    <img src={logo} alt="Logo" className="logo" style={{ height: '380px', width: '480px' }} />
                 </div>
                 <div className={"content"}>
                     <img src={homepageBGR} alt="Logo" className="subheader-image"/>
                 </div>
-
-
             </div>
         </div>
     )

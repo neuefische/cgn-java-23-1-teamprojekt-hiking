@@ -3,6 +3,7 @@ import {Tour} from "../model/Tour";
 import {useParams} from "react-router-dom";
 import useGetTours from "../hook/useGetTours";
 import useUpdateTour from "../hook/UseUpdateTour";
+import "../../src/Styling/UpdateTour.css"
 
 export default function UpdateTour() {
 
@@ -76,8 +77,8 @@ export default function UpdateTour() {
               <input type="text" value={inputFields.category} onChange={handleChange} name="category"/>
               <label>Description</label>
               <input type="text" value={inputFields.description} onChange={handleChange} name="description"/>
-              <button onClick={() => handleChange}>Share your Moment</button>
-              <button type="reset" value="Reset" onClick={resetForm}>Reset</button>
+              <button className={"edit-button"} onClick={() => handleChange}>Share your Moment</button>
+              <button className={"reset-button"} type="reset" value="Reset" onClick={resetForm}>Reset</button>
           </form>
       )
 }
