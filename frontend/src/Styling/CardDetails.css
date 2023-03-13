@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+
+.TourCardDetails {
+    display: flex;
+    flex-wrap:nowrap;
+    justify-content: center;
+    -webkit-display: box;
+    -moz-display: box;
+    -ms-display: flexbox;
+    -webkit-display: flex;
+    padding: 0;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    z-index: 1;
+}
+.card-item-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+}
+
+.card-image-details {
+    opacity: 1;
+    justify-content: center;
+}
+
+.card-info-details {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1rem;
+    line-height: 1.5em;
+}
+
+.card-title-details {
+    font-size: 25px;
+    line-height: 1.1em;
+    color: #32325d;
+    margin-bottom: 0.2em;
+}
+
+.card-image-details {
+    height: 200px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 6px 6px 0px 0px;
+    opacity: 0.91;
+}
+
+
+.card-info-btn-edit-details {
+    background-color: #146552;
+    align-self: center;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 5px;
+}
+
+.card-info-btn-edit-details:hover{
+    transform: scale(110%);
+}
+
+.card-info-tour-details{
+    text-decoration: underline;
+    padding: 5px;
+    margin: -15px;
+
+}
+
+.card-info-category-details{
+    text-decoration: underline;
+    padding: 10px;
+    margin: -19px;
+
+}
+
+.card-info-description-details{
+    text-decoration: underline;
+    padding: 10px;
+    margin: -20px;
+}
+
+a:link, a:visited{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+.navigation-btn-start-details{
+    background-color: #146552;
+    align-self: center;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 5px;
+}
+
+.back-and-delete-button {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 80%;
+    width: 100%;
+
+}
+.backwards-button-details{
+
+     background-color: white;
+     border: none;
+     margin: 10px;
+     width: 1%;
+     cursor: pointer;
+
+ }
+
+.delete-button-details{
+
+      background-color: white;
+      border: none;
+      padding-left: 10em;
+      margin: 10px;
+      width: 1%;
+      cursor: pointer;
+  }
