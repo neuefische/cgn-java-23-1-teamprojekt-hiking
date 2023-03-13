@@ -1,4 +1,6 @@
 import React from "react";
+import "../Styling/Footer.css"
+
 
 export default function Footer() {
 
