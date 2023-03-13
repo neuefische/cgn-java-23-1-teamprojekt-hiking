@@ -33,6 +33,10 @@ export default function TourCardDetails (){
         handleDeleteTour.handleDeleteTour(details)
     }
 
+    const handleNavigationClick = () => {
+        window.location.href = "https://www.google.com/maps/dir/" + details.startLatitude + "," + details.startLongitude + "/" + details.endLatitude + "," + details.endLongitude;
+    };
+
 
     return(
         <div className="TourCardDetails">
@@ -48,7 +52,7 @@ export default function TourCardDetails (){
                         <p className={"card-info-description-details"}>Description:</p>
                         <p>{details.description}</p>
                         <p>Start:{details.startLongitude} {details.startLatitude}</p>
-                        <p>End: {details.endLongitude}  {details.endLatitude}</p>
+                        <button className={"navigation-btn-start-details"} onClick={handleNavigationClick}>Start Navigation</button>
                         <Link to={"/tours/edit/" + id}>Edit</Link>
                         <button className="card-info-btn-edit-details">
                         <Link to={"/tours/edit/" + details.id}>Edit</Link>

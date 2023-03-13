@@ -14,6 +14,7 @@ import Cookies from "js-cookie"
 import SignUp from "./security/SignUp";
 import SignIn from "./security/SignIn";
 import useAuthRedirect from "./hook/useAuthRedirect";
+import LogOut from "./security/LogOut";
 
 axios.interceptors.request.use(function (config) {
         return fetch("/api/csrf").then(() => {
@@ -46,6 +47,7 @@ axios.interceptors.request.use(function (config) {
             <Route path="/tours/edit/:id" element={<UpdateTour />}/>
             <Route path={"/sign-up"} element={<SignUp/>}/>
             <Route path={"/sign-in"} element={<SignIn/>}/>
+            <Route path={"/log-out"} element={<LogOut/>}/>
         </Routes>
         <Footer/>
     </div>

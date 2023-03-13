@@ -3,6 +3,8 @@ import {Tour} from "../model/Tour";
 import "../Styling/AddTour.css"
 import AddSingleTour from "../hook/AddSingleTour";
 import useAuthRedirect from "../hook/useAuthRedirect";
+import {Simulate} from "react-dom/test-utils";
+import input = Simulate.input;
 
 export default function AddTour() {
     useAuthRedirect()
@@ -12,7 +14,12 @@ export default function AddTour() {
     const [inputFields, setInputFields] = React.useState({
         title: "",
         description: "",
-        category: ""
+        category: "",
+        endLatitude: 0,
+        endLongitude: 0,
+        startLatitude: 0,
+        startLongitude: 0
+
     })
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -30,10 +37,10 @@ export default function AddTour() {
             description: inputFields.description,
             category: inputFields.category,
             id: "ABCD123",
-            endLatitude: 12.123,
-            endLongitude: 12.123,
-            startLatitude: 12.123,
-            startLongitude: 12.123
+            endLatitude: inputFields.endLatitude,
+            endLongitude: inputFields.endLongitude,
+            startLatitude: inputFields.startLatitude,
+            startLongitude: inputFields.startLongitude
         })
     }, [setInputFields, inputFields])
 

@@ -2,8 +2,11 @@ package de.trailmate.backend.controller;
 
 import de.trailmate.backend.model.MongoUser;
 import de.trailmate.backend.repository.MongoUserRepository;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -62,6 +65,8 @@ public class MongoUserController {
 //        session.invalidate();
 //        SecurityContextHolder.clearContext();
     }
+
+
 
     @GetMapping("/me")
     public MongoUser getMe1(Principal principal) {
