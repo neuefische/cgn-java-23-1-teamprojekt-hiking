@@ -1,19 +1,33 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url("https://fonts.googleapis.com/css?family=Raleway");
 
-.TourCard{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-}
 
+  .TourCard {
+      display: flex;
+      flex-wrap:nowrap;
+      justify-content: center;
+      -webkit-display: box;
+      -moz-display: box;
+      -ms-display: flexbox;
+      -webkit-display: flex;
+      padding: 0;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      width: 30%;
+      float: left;
+      z-index: 1;
+  }
+/*
    .cards {
-       padding: 1rem;
-       margin-bottom: 2rem;
-       width: 30%;
-       justify-content: center;
-   }
+
+}*/
 
 .card-item {
+    display: flex;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     flex-direction: column;
     background-color: #fff;
     width: 100%;
@@ -21,12 +35,23 @@
     box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
     overflow: hidden;
     transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+}
 
+.card-item:hover {
+     cursor: pointer;
+     transform: scale(1.1);
+     -webkit-transform: scale(1.1);
+}
+.card-image {
+    opacity: 1;
+    justify-content: center;
 }
 
    .card-info {
-       flex: 1 1 auto;
+       display: flex;
        justify-content: center;
+       flex: 1 1 auto;
        flex-direction: column;
        padding: 1rem;
        line-height: 1.5em;
@@ -39,25 +64,24 @@
     margin-bottom: 0.2em;
 }
 
-   .card-image{
+   .card-image {
        height: 200px;
        overflow: hidden;
        background-size: cover;
        background-position: center;
        background-repeat: no-repeat;
-       border-radius: 6px 6px 0 0;
-       width: 100%;
+       border-radius: 6px 6px 0px 0px;
+       opacity: 0.91;
    }
 
+
+
 .card-info-btn-details {
-    display: inline-block;
-    background-color: #5ab995;
-    box-sizing: border-box;
-    box-shadow: 2px 2px 2px darkseagreen;
+    background-color: #146552;
+    align-self: center;
     border-radius: 10px;
-    padding: 2px;
+    padding: 8px;
     margin: 5px;
-    width: 40%;
 }
 
 .card-info-btn-details:hover{
@@ -65,14 +89,11 @@
 }
 
 .card-info-btn-edit {
-    display: inline-block;
-    background-color: #5ab995;
-    box-sizing: border-box;
-    box-shadow: 2px 2px 2px darkseagreen;
+    background-color: #146552;
+    align-self: center;
     border-radius: 10px;
-    padding: 2px;
+    padding: 8px;
     margin: 5px;
-    width: 40%;
 }
 
 .card-info-btn-edit:hover{

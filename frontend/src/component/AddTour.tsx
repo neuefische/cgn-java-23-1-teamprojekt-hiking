@@ -48,7 +48,19 @@ export default function AddTour() {
                    minLength={3}/>
             <label>Description</label>
             <input type="text" value={inputFields.description} onChange={handleChange} name="description"
-                   maxLength={300} minLength={3}/>
+                   maxLength={500} minLength={3}/>
+            <label>Start Latitude</label>
+            <input type="text" value={inputFields.startLatitude} onChange={handleChange} name="startLatitude"
+                   maxLength={50} minLength={3}/>
+            <label>Start Longitude</label>
+            <input type="text" value={inputFields.startLongitude} onChange={handleChange} name="startLongitude"
+                   maxLength={50} minLength={3}/>
+            <label>End Latitude</label>
+            <input type="text" value={inputFields.endLatitude} onChange={handleChange} name="endLatitude"
+                   maxLength={50} minLength={3}/>
+            <label>End Longitude</label>
+            <input type="text" value={inputFields.endLongitude} onChange={handleChange} name="endLongitude"
+                   maxLength={50} minLength={3}/>
             <button className={"add-button"} onClick={() => handleChange}>share your Moment</button>
         </form>
     )

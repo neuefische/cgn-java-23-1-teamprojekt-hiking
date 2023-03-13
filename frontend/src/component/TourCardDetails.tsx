@@ -2,8 +2,8 @@ import {Tour} from "../model/Tour";
 import {Link, useParams} from "react-router-dom";
 import React, {MouseEventHandler, useEffect, useState} from "react";
 import axios from "axios";
-import testtwo from "../testtwo.jpg";
 import DeleteTour from "../hook/DeleteTour";
+import "../../src/Styling/CardDetails.css"
 
 
 export default function TourCardDetails (){
@@ -13,6 +13,7 @@ export default function TourCardDetails (){
     const id: string | undefined = params.id;
     const [details, setDetails] = useState<Tour | undefined>();
     const requestURL:string = "/api/tours/" + id
+    const Image = "https://source.unsplash.com/featured/?hiking"
 
     useEffect(() => {
         axios
@@ -34,30 +35,38 @@ export default function TourCardDetails (){
 
 
     return(
-        <div className="TourCard">
-            <div className="cards">
-                <div className="card-item">
-                    <div className="card-image">
-                        <img src={testtwo}  height={"200"} width={"100%"} alt={"tourcard"}/>
+        <div className="TourCardDetails">
+                <div className="card-item-details">
+                    <div className="card-image-details">
+                        <img src={Image}  height={"200"} width={"100%"} alt={"tourcard"}/>
                     </div>
-                    <div className="card-info">
-                        <p className={"card-info-tour"}>Tour:</p>
+                    <div className="card-info-details">
+                        <p className={"card-info-tour-details"}>Tour:</p>
                         <p>{details.title}</p>
-                        <p className={"card-info-category"}>Difficulty level:</p>
+                        <p className={"card-info-category-details"}>Difficulty level:</p>
                         <p>{details.category}</p>
-                        <p className={"card-info-description"}>Description:</p>
+                        <p className={"card-info-description-details"}>Description:</p>
                         <p>{details.description}</p>
                         <p>Start:{details.startLongitude} {details.startLatitude}</p>
                         <p>End: {details.endLongitude}  {details.endLatitude}</p>
                         <Link to={"/tours/edit/" + id}>Edit</Link>
-                        <button className={"backwards-button"}>
-                        <Link to={"/tours"}><img src={"/back.png"} width={"30px"} height={"30px"}/></Link>
+                        <button className="card-info-btn-edit-details">
+                        <Link to={"/tours/edit/" + details.id}>Edit</Link>
                     </button>
-                        <button className={"delete-button"} type="submit" value="delete" onClick={handleSubmitDelete}><img src={"/delete.png"}/></button>
+
+                        <div className={"back-and-delete-button"}>
+                            <button className={"backwards-button-details"}>
+                                <Link to={"/tours"}><img src={"/back.png"} width={"30px"} height={"30px"}/></Link>
+                            </button>
+                            <button className={"delete-button-details"} type="submit" value="delete"
+                                    onClick={handleSubmitDelete}><img src={"/delete.png"}/></button>
+                        </div>
+
+
 
                     </div>
                 </div>
             </div>
-        </div>
+
     )
 }
